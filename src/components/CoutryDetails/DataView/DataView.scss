@@ -1,0 +1,26 @@
+.DataView {
+
+margin-left: 20px;
+  border : 2px solid red;
+    .info__title{
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .info__content {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: bold;
+
+      text-align: center;
+      color: #313131;
+      line-height: 30px;
+      font-size: 26px;
+      max-height: 28px;
+    }
+  }
+

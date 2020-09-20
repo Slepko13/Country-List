@@ -1,0 +1,36 @@
+.DataViewLanguages{
+  position: relative;
+
+  .info__title{
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+  }
+  .info__content {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #313131;
+    display: flex;
+    justify-content: center;
+    .item {
+      line-height: 28px;
+      margin-right: 10px;
+
+    }
+    .wrapper {
+      position:relative;
+      width: 70px;
+    }
+
+
+  }
+
+
+}
