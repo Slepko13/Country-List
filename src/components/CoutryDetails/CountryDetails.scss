@@ -1,0 +1,118 @@
+.CountryDetails {
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F1F1F1;
+  margin-left: 40px;
+
+  .choose__country {
+    text-align: center;
+    .choose__title  {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 84px;
+      line-height: 98px;
+    }
+  }
+  .country {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    .country__top {
+      position:relative;
+      height: 188px;
+      width:  100%;
+      background: url("../../assets/images/flags.png") center center no-repeat;
+      background-size: 100% 100%;
+
+      .top__flags {
+        width: 100%;
+        height: 100%;
+
+      }
+      .top__flag {
+        position: absolute;
+        width: 127px;
+        height: 75px;
+        top : 10px;
+        left : 50%;
+        transform: translateX(-50%);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2), -1px -1px 4px rgba(0, 0, 0, 0.2);
+        //object-fit: contain;
+        background: center center no-repeat;
+        background-size: cover;
+      }
+    }
+    .country__block {
+      border: 2px solid yellow;
+      flex:2;
+      position: relative;
+
+      .block__image {
+        height: 345px;
+        width: 420px;
+        position: absolute;
+        left : 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        //z-index: -1;
+      }
+      .block__info {
+        border: 2px solid blue;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .two,
+        .four{
+          display: flex;
+          justify-content: space-around;
+          .left {
+            margin-left: -50px;
+          }
+        }
+
+        .three {
+          display: flex;
+          justify-content: space-between;
+        }
+        .info {
+          border: 3px dotted grey;
+
+          .info__wrapper {
+            border: 1px solid orchid;
+
+            .info__title{
+              font-family: "Roboto";
+              font-style: normal;
+              font-weight: 300;
+              font-size: 14px;
+              line-height: 16px;
+              text-align: center;
+            }
+            .info__content {
+              font-family: "Roboto";
+              font-style: normal;
+              font-weight: bold;
+              font-size: 24px;
+              line-height: 52px;
+              text-align: center;
+              color: #313131;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
