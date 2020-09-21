@@ -1,6 +1,12 @@
 .DataViewLanguages{
   position: relative;
-
+  @media screen and (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin: 0 0 20px 20px;
+  }
   .info__title{
     font-family: "Roboto";
     font-style: normal;

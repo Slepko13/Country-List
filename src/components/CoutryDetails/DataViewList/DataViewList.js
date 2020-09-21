@@ -31,6 +31,7 @@ const DataViewList = (props) =>{
                             !item.symbol ? null : item.symbol ==="null" ? "n/a": `"${item.symbol}"`
                                 }</span>
                             {item.name.replace("UTC","GMT")}
+
                         </div>):
                     null
                     }
@@ -42,7 +43,10 @@ const DataViewList = (props) =>{
                         left=""
                         right=""
                     />: null}
+
             </div>
+            {data.length > 3 ?<div style={{height:"20px"}}></div>:null}
+
         </div>
     )
 }

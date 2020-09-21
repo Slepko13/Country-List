@@ -1,0 +1,33 @@
+.MyHeader {
+  font-size: 32px;
+  font-family: Roboto;
+  font-weight: 300;
+  line-height: 37px;
+  width: 100%;
+  height: 58px;
+  background: rgba(214, 194, 141, 0.5);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+  @media screen and (max-width: 991px) {
+   margin-bottom: 0;
+  }
+
+  .back__arrow {
+    @media screen and (min-width: 992px) {
+      display: none;
+    }
+
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(214, 194, 141, 0);
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+}
