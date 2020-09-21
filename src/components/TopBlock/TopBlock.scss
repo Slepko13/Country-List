@@ -1,0 +1,54 @@
+.TopBlock {
+  height: 226px;
+  margin-bottom: 26px;
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+  .choose__country {
+    text-align: center;
+    .choose__image {
+      .choose__earth {
+        width: 133px;
+        height: 133px;
+      }
+    }
+    .choose__title  {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 44px;
+      line-height: 52px;
+      color: #000000;
+      @media screen and (max-width: 375px) {
+        font-size: 32px;
+      }
+    }
+  }
+  .country {
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .country__flags {
+      position: absolute;
+      left: 0;
+      bottom: 37px;
+      height: 100px;
+      width: 100%;
+      background: url("../../assets/images/flags.png") center center no-repeat;
+      background-size: contain;
+      @media screen and(min-width:425px){
+        bottom: 7px;
+        height: 180px;
+      }
+    }
+    .choose__image {
+      .choose__earth {
+        width: 133px;
+        height: 133px;
+      }
+    }
+  }
+}

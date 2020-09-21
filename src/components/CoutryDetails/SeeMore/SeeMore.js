@@ -5,7 +5,6 @@ import './SeeMore.scss';
 
 const SeeMore = ({data,top, bottom,left,right})=>{
     const [list, setList] = useState(false);
-    console.log(list);
 return (
     <div
         className="SeeMore"
