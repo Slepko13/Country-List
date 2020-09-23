@@ -2,10 +2,10 @@ import React from "react";
 import './MyError.scss';
 
 
-const MyError = (props) => {
+const MyError = ({message}) => {
     return (
         <div className="MyError">
-            Here will be error handling
+            Sorry,  you got an error: {message || "some error"}
         </div>
     )
 }
