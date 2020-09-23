@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import { create, act } from "react-test-renderer";
 import MyHeader from "./MyHeader";
 import {ArrowBack} from "@material-ui/icons";
@@ -60,7 +60,6 @@ describe("MyHeader component", () => {
         const instance = component.root;
         const button = instance.findByType("button");
         const arrow =instance.findByType(ArrowBack);
-        console.log(arrow);
        expect(arrow).not.toBeNull();
     });
 
