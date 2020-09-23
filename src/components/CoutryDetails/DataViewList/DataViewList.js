@@ -8,8 +8,9 @@ const DataViewList = (props) =>{
 
     let{title, data, position, addictions, direction} = props;
     let myData, restData;
-
-    if(data.length <= 3) {
+console.log(data);
+    // if(!data.length) return null;
+    if(data.length <= 3 ) {
         myData = [...data];
     }else {
         myData = data.slice(0,3);
@@ -17,10 +18,10 @@ const DataViewList = (props) =>{
 
     }
     return (
-        <div className={position? `DataViewList + ${position} `: "DataViewList"}>
+        <div className={position ? `DataViewList + ${position} `: "DataViewList"}>
             <div className="info__title">{title}</div>
             <div className="info__content">{
-                myData.length ?
+                data.length ?
                     myData.filter(item=>item.name!=="null")
                         .map(item=>
                         <div
@@ -32,8 +33,9 @@ const DataViewList = (props) =>{
                                 }</span>
                             {item.name.replace("UTC","GMT")}
 
-                        </div>):
-                    null
+                        </div>)
+                :
+                    <div className="item">n/a</div>
                     }
                 {restData ?
                     <SeeMore

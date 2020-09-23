@@ -27,8 +27,7 @@ const DataViewLanguages = (props) =>{
                             key={item.name}
                         >{item.name}</div>) :
                     <div>n/a</div>
-
-            }
+                }
             {restData ?<div className="wrapper">
                 <SeeMore
                     data={restData}

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`my SeeMore component should render SeeMore  Component with props(snapshot) 1`] = `
+<div
+  className="SeeMore"
+  style={
+    Object {
+      "bottom": "0",
+      "left": "0",
+      "right": "0",
+      "top": "0",
+    }
+  }
+>
+  <button
+    className="openButton"
+    onClick={[Function]}
+  >
+    See more
+  </button>
+</div>
+`;
+
+exports[`my SeeMore component should render SeeMore  list 1`] = `
+<div
+  className="SeeMore"
+  style={
+    Object {
+      "bottom": "0",
+      "left": "0",
+      "right": "0",
+      "top": "0",
+    }
+  }
+>
+  <button
+    className="openButton"
+    onClick={[Function]}
+  >
+    See more
+  </button>
+</div>
+`;
