@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`my MyLoader component should render MyLoader Component with props(snapshot) 1`] = `
+<div
+  className="MyLoader"
+>
+    Here will be my loader....
+</div>
+`;
+
+exports[`my MyLoader component should render MyLoader Component without props(snapshot) 1`] = `
+<div
+  className="MyLoader"
+>
+    Here will be my loader....
+</div>
+`;

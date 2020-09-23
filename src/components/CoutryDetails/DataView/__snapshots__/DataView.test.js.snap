@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`my DataView component should render DataView  Component with props(snapshot) 1`] = `
+<div
+  className="DataView"
+>
+  <div
+    className="info__title"
+  >
+    Capital
+  </div>
+  <div
+    className="info__content"
+  >
+    Kyiv
+    <span
+      style={
+        Object {
+          "marginLeft": "10px",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`my DataView component should render DataView  Component without props(snapshot) 1`] = `
+<div
+  className="DataView"
+>
+  <div
+    className="info__title"
+  />
+  <div
+    className="info__content"
+  >
+    <span
+      style={
+        Object {
+          "marginLeft": "10px",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`my DataView component should render DataView  additional classname depending on props  1`] = `
+<div
+  className="DataView + left "
+>
+  <div
+    className="info__title"
+  />
+  <div
+    className="info__content"
+  >
+    <span
+      style={
+        Object {
+          "marginLeft": "10px",
+        }
+      }
+    />
+  </div>
+</div>
+`;

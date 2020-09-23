@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Top block component should render  with   props(snapshot) 1`] = `
+<div
+  className="TopBlock "
+>
+  <div
+    className="country"
+  >
+    <div
+      className="country__flags"
+    />
+    <div
+      className="choose__image"
+    >
+      <img
+        alt="happy earth"
+        className="choose__earth "
+        src="happy_earth.png"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Top block component should render without props(snapshot) 1`] = `
+<div
+  className="TopBlock "
+>
+  <div
+    className="choose__country"
+  >
+    <div
+      className="choose__image"
+    >
+      <img
+        alt="happy earth"
+        className="choose__earth"
+        src="happy_earth.png"
+      />
+    </div>
+    <div
+      className="choose__title"
+    >
+      Choose a card :)
+    </div>
+  </div>
+</div>
+`;

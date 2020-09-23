@@ -2,10 +2,10 @@ import React from "react";
 import './MyLoader.scss';
 
 
-const MyLoader = (props) => {
+const MyLoader = ({loader}) => {
     return (
         <div className="MyLoader">
-            Here will be my loader....
+          {loader || "  Here will be my loader...."}
         </div>
     )
 }
