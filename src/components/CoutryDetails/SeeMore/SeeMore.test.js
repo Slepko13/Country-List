@@ -3,7 +3,10 @@ import SeeMore from "./SeeMore";
 
 const setUp = (props) => shallow(<SeeMore{...props}/>)
 const props = {
-    data:["english", "french", "fg", "lk"],
+    data : [
+        {name :"english" },
+        {name :"french" },
+    ],
     left:"0",
     right:"0",
     top:"0",
@@ -15,10 +18,19 @@ describe("my SeeMore component", () => {
         const component = setUp(props);
         expect(component).toMatchSnapshot();
     });
-    it("should render SeeMore  list", () => {
+    it("should  show close  button", () => {
         const setList = jest.fn();
         const component = setUp(props);
-        expect(component).toMatchSnapshot();
+        component.find(".openButton").simulate('click');
+        expect(component.find("closeButton")).not.toBeNull();
     });
+    it("should hide close  button", () => {
+        const setList = jest.fn();
+        const component = setUp(props);
+        component.find(".openButton").simulate('click');
+        component.find(".closeButton").simulate('click');
+        expect(component.find("openButton")).not.toBeNull();
+        expect(component.find("closeButton")).toHaveLength(0);
 
+    });
 });
