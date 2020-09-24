@@ -1,7 +1,8 @@
 {
+  "homepage": "http://Slepko13.github.io/Country-List",
   "name": "client",
   "version": "0.1.0",
-  "private": true,
+  "private": true,git status
   "dependencies": {
     "@apollo/client": "^3.2.0",
     "@babel/core": "7.9.0",
@@ -34,6 +35,7 @@
     "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
+    "gh-pages": "^3.1.0",
     "graphql": "^15.3.0",
     "html-webpack-plugin": "4.0.0-beta.11",
     "identity-obj-proxy": "3.0.0",
@@ -74,13 +76,14 @@
     "react-test-renderer": "^16.13.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "npm run test:coverage",
     "test:watch": "jest --watch",
     "test:unit": "jest src/",
     "test:coverage": "npm run test:unit -- --coverage"
-
   },
   "eslintConfig": {
     "extends": "react-app"

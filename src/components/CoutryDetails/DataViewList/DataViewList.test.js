@@ -4,16 +4,83 @@ import DataView from "../DataView/DataView";
 
 
 describe("DataViewList component", () => {
-    describe("data is null", ()=>{
+    describe("symbol is absent", ()=>{
+        const props = {
+            data : [
+                {name :"english" },
+                {name :"french" },
+            ],
+            title :"Languages",
+            position: "left"
+        }
+        const component = shallow(<DataViewList {...props}/>);
+        it("should renders correct symbol text", () => {
+            expect(component.find('.info__content').childAt(0).find('.item__symbol').text()).toEqual('');
+        });
+    });
+    describe("symbol is string 'null' ", ()=>{
+        const props = {
+            data : [
+                {name :"english", symbol: "null" },
+                {name :"french",  symbol: "null" },
+            ],
+            title :"Languages",
+            position: "left"
+        }
+        const component = shallow(<DataViewList {...props}/>);
+        it("should renders correct symbol text", () => {
+            expect(component.find('.info__content').childAt(0).find('.item__symbol').text()).toEqual('n/a');
+        });
+    });
+    describe("symbol renders properly ", ()=>{
+        const props = {
+            data : [
+                {name :"english", symbol: "$" },
+                {name :"french",  symbol: "₴" },
+            ],
+            title :"Languages",
+            position: "left"
+        }
+        const component = shallow(<DataViewList {...props}/>);
+        it("should renders correct symbol text", () => {
+            expect(component.find('.info__content').childAt(0).find('.item__symbol').text()).toEqual('"$"');
+        });
+    });
+
+    describe("position is absent", ()=>{
+        const props = {
+            data : [
+                {name :"english" },
+                {name :"french" },
+            ],
+            title :"Languages",
+            // position: "left"
+        }
+        const component = shallow(<DataViewList {...props}/>);
+        it("should renders correct className", () => {
+         expect(component.find('.DataViewList')).toHaveLength(1);
+        });
+    });
+    describe("data is absent", ()=>{
         const props = {
             title :"Languages",
             position: "left"
         }
         const component = shallow(<DataViewList {...props}/>);
-        it("should renders 2 items ", () => {
-            expect(component.find('div.item')).toHaveLength(0);
+        it("should renders 'Data is absent today ", () => {
+            expect(component.find('.absent').text()).toEqual('Data is absent today');
         });
-
+    });
+    describe("data is empty array", ()=>{
+        const props = {
+            data :[],
+            title :"Languages",
+            position: "left"
+        }
+        const component = shallow(<DataViewList {...props}/>);
+        it("should renders 'n/a ", () => {
+            expect(component.find('.item').text()).toEqual('n/a');
+        });
     });
     describe("data length <= 3", ()=>{
         const props = {
@@ -53,11 +120,6 @@ describe("DataViewList component", () => {
             expect(component.find('div.item')).toHaveLength(3);
             expect(component.find('SeeMore')).toHaveLength(1);
         });
-
-        it("should renders symbol ", () => {
-            expect(component.find('span.item__symbol')).toHaveLength(3);
-        });
-
     });
 });
 

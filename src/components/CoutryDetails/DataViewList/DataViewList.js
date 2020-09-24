@@ -8,15 +8,18 @@ const DataViewList = (props) =>{
 
     let{title, data, position, addictions, direction} = props;
     let myData, restData;
-console.log(data);
-    // if(!data.length) return null;
-    if(data.length <= 3 ) {
-        myData = [...data];
-    }else {
-        myData = data.slice(0,3);
-        restData = data.slice(3);
 
-    }
+    if(!data)    return  <div className={position ? `DataViewList + ${position} `: "DataViewList"}>
+        <div className="absent">Data is absent today</div>
+    </div>;
+
+        if(data.length <= 3 && data.length > 0 ) {
+            myData = [...data];
+        }else if(data.length > 3) {
+            myData = data.slice(0,3);
+            restData = data.slice(3);
+        }
+
     return (
         <div className={position ? `DataViewList + ${position} `: "DataViewList"}>
             <div className="info__title">{title}</div>

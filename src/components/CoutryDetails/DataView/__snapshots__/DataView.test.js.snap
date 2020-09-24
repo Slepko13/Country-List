@@ -12,7 +12,7 @@ exports[`my DataView component should render DataView  Component with props(snap
   <div
     className="info__content"
   >
-    Kyiv
+    London
     <span
       style={
         Object {
