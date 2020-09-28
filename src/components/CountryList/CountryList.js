@@ -1,17 +1,17 @@
 import React, {useState} from 'react';
 import './CountryList.scss';
 
-import { useQuery} from '@apollo/client';
-import {COUTRIES} from "./query";
+import { useQuery } from '@apollo/client';
+import { COUNTRIES } from "./query";
 import MyError from "../MyError/MyError";
 import MyLoader from "../MyLoader/MyLoader";
-import DataView from "../CoutryDetails/DataView/DataView";
 
 function CountryList({setId}) {
-    const { loading, error, data } = useQuery(COUTRIES);
+    const { loading, error, data } = useQuery(COUNTRIES);
 
     if (loading) return <div className="CountryList"><MyLoader/></div>;
     if (error) return <div className="CountryList"> <MyError/></div>;
+    if (!data.Country.length) return <p>Empty data</p>
 
     const renderList = (list) => (
         <div className="CountryList ">
@@ -19,6 +19,7 @@ function CountryList({setId}) {
                 {list.map(({name, capital , flag : {svgFile : flag}, subregion }, index ) =>
                     <div
                        className="list__item"
+                       data-testid = {name}
                        key={name}
                        onClick={(e) => { setId(name)}}
                     >
@@ -31,19 +32,25 @@ function CountryList({setId}) {
                                   <div className="info__data">{name}</div>
                               </div>
                               {capital === "Kiev" ?
-                              <div className="info__capital">
+                              <div className="info__capital"
+                                   data-testid="KyivCapital"
+                              >
                                   <div className="info__title">Capital:</div>
                                   <div className="info__data">Kyiv</div>
                               </div>:
                               capital==="" ?
                                   null :
-                                  <div className="info__capital">
+                                  <div className="info__capital"
+                                       data-testid="customCapital"
+                                  >
                                       <div className="info__title">Capital:</div>
                                       <div className="info__data">{capital}</div>
                                   </div>
                               }
                               {subregion ?
-                                  <div className="info__region">
+                                  <div className="info__region"
+                                       data-testid="subregion"
+                                  >
                                       <div className="info__title">Region:</div>
                                       <div className="info__data">{subregion.region.name}</div>
                                   </div> :
@@ -55,7 +62,8 @@ function CountryList({setId}) {
             </div>
         </div>
     )
-    return renderList(data.Country);
+    // if(data &&  data.Country)
+        return renderList(data.Country);
 }
 
 export default CountryList;

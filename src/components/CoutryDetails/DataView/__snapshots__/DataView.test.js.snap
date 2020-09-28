@@ -3,6 +3,7 @@
 exports[`my DataView component should render DataView  Component with props(snapshot) 1`] = `
 <div
   className="DataView"
+  data-testid="position"
 >
   <div
     className="info__title"
@@ -27,6 +28,7 @@ exports[`my DataView component should render DataView  Component with props(snap
 exports[`my DataView component should render DataView  Component without props(snapshot) 1`] = `
 <div
   className="DataView"
+  data-testid="position"
 >
   <div
     className="info__title"

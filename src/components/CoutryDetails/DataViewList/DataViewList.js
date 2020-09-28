@@ -10,6 +10,7 @@ const DataViewList = (props) =>{
     let myData, restData;
 
     if(!data)    return  <div className={position ? `DataViewList + ${position} `: "DataViewList"}>
+
         <div className="absent">Data is absent today</div>
     </div>;
 

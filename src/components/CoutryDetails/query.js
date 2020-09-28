@@ -2,7 +2,9 @@ import {gql} from "@apollo/client";
 
 export const COUNTRY = gql`
     query GetCountry($name: String)  {
-        Country(name: $name) {
+        Country
+        (name: $name)
+        {
             name
             population
             capital
@@ -10,7 +12,6 @@ export const COUNTRY = gql`
                 name
             }
             subregion {
-                name
                 region {
                     name
                 }

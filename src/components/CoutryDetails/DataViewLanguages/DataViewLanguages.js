@@ -8,13 +8,15 @@ const DataViewLanguages = (props) =>{
 
     let{title, data, position} = props;
     let myData, restData;
+    if(!data)    return  <div className={position ? `DataViewLanguages ${position}`: "DataViewLanguages"}>
+        <div className="absent">Data is absent today</div>
+    </div>;
 
-   if(data.length <= 3) {
+   if(data.length <= 3 && data.length > 0) {
        myData = [...data];
    }else {
        myData = data.slice(0,3);
        restData = data.slice(3);
-
    }
     return (
         <div className={position ? `DataViewLanguages + ${position} `: "DataViewLanguages"}>
@@ -26,7 +28,7 @@ const DataViewLanguages = (props) =>{
                             className="item"
                             key={item.name}
                         >{item.name}</div>) :
-                    <div>n/a</div>
+                    <div className="item">n/a</div>
                 }
             {restData ?<div className="wrapper">
                 <SeeMore

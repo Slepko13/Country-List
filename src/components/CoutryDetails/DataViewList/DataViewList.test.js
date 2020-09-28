@@ -1,6 +1,5 @@
 import React from "react";
 import DataViewList from "./DataViewList";
-import DataView from "../DataView/DataView";
 
 
 describe("DataViewList component", () => {
@@ -92,6 +91,7 @@ describe("DataViewList component", () => {
             position: "left"
         }
         const component = shallow(<DataViewList {...props}/>);
+
         it("should renders 2 items ", () => {
             expect(component.find('div.item')).toHaveLength(2);
         });
