@@ -2,7 +2,7 @@
 
 exports[`my DataViewLanguages component data length <= 3 should renders properly  1`] = `
 <div
-  className="DataViewList + left "
+  className="DataViewLanguages + left "
 >
   <div
     className="info__title"
@@ -16,18 +16,12 @@ exports[`my DataViewLanguages component data length <= 3 should renders properly
       className="item"
       key="english"
     >
-      <span
-        className="item__symbol"
-      />
       english
     </div>
     <div
       className="item"
       key="french"
     >
-      <span
-        className="item__symbol"
-      />
       french
     </div>
   </div>

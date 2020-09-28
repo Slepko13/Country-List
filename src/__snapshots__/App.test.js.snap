@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountryList component should renders properly  1`] = `
+<div
+  className="App "
+>
+  <MyHeader
+    countryDetails={false}
+    setCountryDetails={[Function]}
+  />
+  <CountryDetailsMobile
+    countryDetails={false}
+    id={null}
+  />
+  <div
+    className="content container-fluid "
+  >
+    <div
+      className="row "
+    >
+      <div
+        className="col-12 col-lg-8 order-lg-2 "
+      >
+        <TopBlock
+          id={null}
+        />
+        <CountryDetails
+          id={null}
+        />
+      </div>
+      <div
+        className="col-12  col-lg-4"
+      >
+        <CountryList
+          setId={[Function]}
+        />
+        <CountryListMobile
+          countryDetails={false}
+          setCountryDetails={[Function]}
+          setId={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

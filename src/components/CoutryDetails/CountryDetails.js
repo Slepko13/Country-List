@@ -15,9 +15,12 @@ import DataViewList from "./DataViewList/DataViewList";
 
 
 const CountryDetails = ({id}) => {
+
     const { loading, error, data } = useQuery(COUNTRY,{
         variables: {name: id}
     });
+    if (loading) return <div className="CountryDetails "><p className="loading">Loading...</p></div>;
+    if (error) return <div className="CountryDetails "><p className="error">Error :(</p></div>;
 
     if(!id)  return (
         <div className="CountryDetails " >
@@ -27,14 +30,8 @@ const CountryDetails = ({id}) => {
             </div>
               <div className="choose__title">Choose a card :)</div>
           </div>
-
         </div>
     )
-
-
-    if (loading) return <div className="CountryDetails "><p className="loading">Loading...</p></div>;
-    if (error) return <div className="CountryDetails "><p className="error">Error :(</p></div>;
-
 
 const{
     name,
@@ -49,9 +46,9 @@ const{
 } = data.Country[0];
 
 const region = subregion ? subregion.region.name : "n/a";
-const currency = currencies.length ? currencies : "n/a";
-const callCode = callingCodes.length ? callingCodes : "n/a";
-const officialLanguage = officialLanguages.length ? officialLanguages : "n/a";
+// const currency = currencies.length ? currencies : "n/a";
+// const callCode = callingCodes.length ? callingCodes : "n/a";
+// const officialLanguage = officialLanguages.length ? officialLanguages : "n/a";
 let  popul, unit;
 
 if (population > 1000000) {
@@ -61,14 +58,15 @@ if (population > 1000000) {
     popul = (Math.round(population/10)/100).toLocaleString("pl");
     unit = "t"
 }
-
     return (
         <div className="CountryDetails ">
             <div className="country">
                 <div className="country__top">
                     <div className="top__flag" style={{backgroundImage : `url(${flag})`}}></div>
                 </div>
-                <div className="country__block">
+                <div className="country__block"
+                     data-testid = "country"
+                >
                     <img  className="block__image" src={earthFull} />
                     <div className="block__info">
                         <div className="info one">
@@ -78,7 +76,8 @@ if (population > 1000000) {
                                 position=""
                             />
                         </div>
-                        <div className="info two">
+                        <div className="info two"
+                             data-testid="data">
                             <DataView
                                 title="Capital"
                                 data={capital}
@@ -90,7 +89,9 @@ if (population > 1000000) {
                                 position="right"
                             />
                         </div>
-                        <div className="info three">
+                        <div
+                            data-testid="unit"
+                            className="info three">
                             <DataView
                                 title="Population"
                                 data={popul}

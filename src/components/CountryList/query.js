@@ -1,13 +1,11 @@
 import {gql} from "@apollo/client";
 
-export const COUTRIES = gql`
+export const COUNTRIES = gql`
     {
         Country(orderBy: name_asc) {
             name
             capital
-            alpha2Code
             subregion {
-                name
                 region {
                     name
                 }
