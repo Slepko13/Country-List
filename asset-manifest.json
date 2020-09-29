@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Country-List/static/css/main.344e25a1.chunk.css",
-    "main.js": "/Country-List/static/js/main.47a37c55.chunk.js",
-    "main.js.map": "/Country-List/static/js/main.47a37c55.chunk.js.map",
+    "main.css": "/Country-List/static/css/main.a3f14fd6.chunk.css",
+    "main.js": "/Country-List/static/js/main.87d50449.chunk.js",
+    "main.js.map": "/Country-List/static/js/main.87d50449.chunk.js.map",
     "runtime-main.js": "/Country-List/static/js/runtime-main.e3ae1870.js",
     "runtime-main.js.map": "/Country-List/static/js/runtime-main.e3ae1870.js.map",
     "static/css/2.d9ad5f5c.chunk.css": "/Country-List/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.6c8aac17.chunk.js": "/Country-List/static/js/2.6c8aac17.chunk.js",
-    "static/js/2.6c8aac17.chunk.js.map": "/Country-List/static/js/2.6c8aac17.chunk.js.map",
+    "static/js/2.2c038c73.chunk.js": "/Country-List/static/js/2.2c038c73.chunk.js",
+    "static/js/2.2c038c73.chunk.js.map": "/Country-List/static/js/2.2c038c73.chunk.js.map",
     "index.html": "/Country-List/index.html",
-    "precache-manifest.12b33422e94922f2cfc9d35631218982.js": "/Country-List/precache-manifest.12b33422e94922f2cfc9d35631218982.js",
+    "precache-manifest.572f65fd4d7cfb0b6345df1c5052bec4.js": "/Country-List/precache-manifest.572f65fd4d7cfb0b6345df1c5052bec4.js",
     "service-worker.js": "/Country-List/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/Country-List/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.344e25a1.chunk.css.map": "/Country-List/static/css/main.344e25a1.chunk.css.map",
-    "static/js/2.6c8aac17.chunk.js.LICENSE.txt": "/Country-List/static/js/2.6c8aac17.chunk.js.LICENSE.txt",
+    "static/css/main.a3f14fd6.chunk.css.map": "/Country-List/static/css/main.a3f14fd6.chunk.css.map",
+    "static/js/2.2c038c73.chunk.js.LICENSE.txt": "/Country-List/static/js/2.2c038c73.chunk.js.LICENSE.txt",
     "static/media/CountryDetailsMobile.scss": "/Country-List/static/media/flags.3efb7b23.png",
     "static/media/happy_earth.png": "/Country-List/static/media/happy_earth.daa64770.png",
     "static/media/happy_earth_ellipses.png": "/Country-List/static/media/happy_earth_ellipses.c33a86a4.png"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.e3ae1870.js",
     "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.6c8aac17.chunk.js",
-    "static/css/main.344e25a1.chunk.css",
-    "static/js/main.47a37c55.chunk.js"
+    "static/js/2.2c038c73.chunk.js",
+    "static/css/main.a3f14fd6.chunk.css",
+    "static/js/main.87d50449.chunk.js"
   ]
 }
