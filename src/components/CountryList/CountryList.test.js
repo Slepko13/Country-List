@@ -1,10 +1,9 @@
 import React from "react";
-import { MockedProvider  } from '@apollo/client/testing';
-import { act, render, screen, fireEvent, cleanup } from '@testing-library/react';
+import {MockedProvider} from '@apollo/client/testing';
+import {act, render, fireEvent, cleanup} from '@testing-library/react';
 
 import {COUNTRIES} from "./query";
 import CountryList from "./CountryList";
-
 
 
 const errorMock = [{
@@ -20,7 +19,14 @@ const dataMocks = [
             query: COUNTRIES
         },
         result: {
-            data: { Country: [{ name: 'France', capital: 'Paris',subregion: {region: {name: 'Europe'}}, flag: {svgFile: "flag"}}]}
+            data: {
+                Country: [{
+                    name: 'France',
+                    capital: 'Paris',
+                    subregion: {region: {name: 'Europe'}},
+                    flag: {svgFile: "flag"}
+                }]
+            }
         }
     }
 ];
@@ -30,7 +36,14 @@ const dataMocksKiev = [
             query: COUNTRIES
         },
         result: {
-            data: { Country: [{ name: 'Ukraine', capital: 'Kiev',subregion: {region: {name: 'Europe'}}, flag: {svgFile: "flag"}}]}
+            data: {
+                Country: [{
+                    name: 'Ukraine',
+                    capital: 'Kiev',
+                    subregion: {region: {name: 'Europe'}},
+                    flag: {svgFile: "flag"}
+                }]
+            }
         }
     }
 ];
@@ -41,7 +54,14 @@ const dataMocksEmptyCapital = [
             query: COUNTRIES
         },
         result: {
-            data: { Country: [{ name: 'Ukraine', capital: '', subregion: {region: {name: 'Europe'}}, flag: {svgFile: "flag"}}]}
+            data: {
+                Country: [{
+                    name: 'Ukraine',
+                    capital: '',
+                    subregion: {region: {name: 'Europe'}},
+                    flag: {svgFile: "flag"}
+                }]
+            }
         }
     }
 ];
@@ -51,7 +71,7 @@ const dataMocksEmptySubregion = [
             query: COUNTRIES
         },
         result: {
-            data: { Country: [{ name: 'France', capital: 'Paris',subregion: null, flag: {svgFile: "flag"}}]}
+            data: {Country: [{name: 'France', capital: 'Paris', subregion: null, flag: {svgFile: "flag"}}]}
         }
     }
 ];
@@ -61,34 +81,36 @@ const dataMocksEmpty = [
             query: COUNTRIES
         },
         result: {
-            data: { Country: []}
+            data: {Country: []}
         }
     }
 ];
+
 async function wait(ms = 0) {
     await act(() => {
         return new Promise(resolve => {
             setTimeout(resolve, ms);
         });
     });
-};
+}
 afterEach(cleanup);
 
-describe('CountryList', ()=>{
+describe('CountryList', () => {
     it('renders', async () => {
-        const { asFragment } = render(
+        const {asFragment} = render(
             <MockedProvider addTypename={false} mocks={dataMocks}>
-                <CountryList  setId={()=>{}}/>
+                <CountryList setId={() => {
+                }}/>
             </MockedProvider>
         );
         await wait();
         expect(asFragment()).toMatchSnapshot();
     });
 
-    test('renders error', async ()=>{
-        const { container } = render(
+    test('renders error', async () => {
+        const {container} = render(
             <MockedProvider addTypename={false} mocks={errorMock}>
-                <CountryList />
+                <CountryList/>
             </MockedProvider>
         );
 
@@ -98,9 +120,10 @@ describe('CountryList', ()=>{
     });
 
     it('renders correct texts in card ', async () => {
-        const { container, getByTestId, getByText } = render(
+        const {container, getByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocks}>
-                <CountryList  setId={()=>{}}/>
+                <CountryList setId={() => {
+                }}/>
             </MockedProvider>
         );
         await wait();
@@ -111,9 +134,10 @@ describe('CountryList', ()=>{
     });
 
     it('renders correct texts in card with Kyiv capital', async () => {
-        const { container, getByTestId, getByText } = render(
+        const {container, getByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocksKiev}>
-                <CountryList  setId={()=>{}}/>
+                <CountryList setId={() => {
+                }}/>
             </MockedProvider>
         );
         await wait();
@@ -124,23 +148,22 @@ describe('CountryList', ()=>{
     });
 
     it('renders without capital', async () => {
-        const { container, getByTestId, getByText, queryByTestId } = render(
+        const { queryByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocksEmptyCapital}>
-                <CountryList  setId={()=>{}}/>
+                <CountryList setId={() => {
+                }}/>
             </MockedProvider>
         );
         await wait();
-
         expect(queryByTestId('customCapital')).toBeFalsy();
         expect(queryByTestId('KyivCapital')).toBeFalsy();
-
-
     });
 
     it('renders without subregion', async () => {
-        const { container, getByTestId, getByText, queryByTestId } = render(
+        const { queryByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocksEmptySubregion}>
-                <CountryList  setId={()=>{}}/>
+                <CountryList setId={() => {
+                }}/>
             </MockedProvider>
         );
         await wait();
@@ -148,9 +171,10 @@ describe('CountryList', ()=>{
     });
 
     it('renders without data', async () => {
-        const { container, getByTestId, getByText, queryByTestId } = render(
+        const { getByText} = render(
             <MockedProvider addTypename={false} mocks={dataMocksEmpty}>
-                <CountryList  setId={()=>{}}/>
+                <CountryList setId={() => {
+                }}/>
             </MockedProvider>
         );
         await wait();
@@ -159,9 +183,9 @@ describe('CountryList', ()=>{
 
     it('setId should be called', async () => {
         const setIdSpy = jest.fn();
-        const { container, debug, getByTestId, getByText } = render(
+        const { getByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocks}>
-                <CountryList  setId={setIdSpy}/>
+                <CountryList setId={setIdSpy}/>
             </MockedProvider>
         );
         await wait();

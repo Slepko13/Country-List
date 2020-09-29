@@ -1,7 +1,7 @@
 import React from "react";
 import DataViewList from "./DataViewList";
 import {render} from "@testing-library/react";
-import DataViewLanguages from "../DataViewLanguages/DataViewLanguages";
+import DataViewLanguages from "../DataViewLanguagesMobile/DataViewLanguagesMobile";
 
 
 describe("DataViewListMobile component", () => {

@@ -1,10 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`App component should renders properly  1`] = `
+<div
+  className="App "
+>
+  <MainHeader
+    countryDetails={false}
+    setCountryDetails={[Function]}
+  />
+  <CountryDetailsMobile
+    countryDetails={false}
+    id={null}
+  />
+  <div
+    className="content container-fluid "
+  >
+    <div
+      className="row "
+    >
+      <div
+        className="col-12 col-lg-8 order-lg-2 "
+      >
+        <TopBlock
+          countryDetails={false}
+          id={null}
+        />
+        <CountryDetails
+          id={null}
+        />
+      </div>
+      <div
+        className="col-12  col-lg-4"
+      >
+        <CountryList
+          setId={[Function]}
+        />
+        <CountryListMobile
+          countryDetails={false}
+          setCountryDetails={[Function]}
+          setId={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`CountryList component should renders properly  1`] = `
 <div
   className="App "
 >
-  <MyHeader
+  <MainHeader
     countryDetails={false}
     setCountryDetails={[Function]}
   />

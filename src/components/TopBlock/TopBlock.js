@@ -1,10 +1,11 @@
 import React from 'react';
 import './TopBlock.scss';
 import earth from "../../assets/images/happy_earth.png";
+import PropTypes from "prop-types";
 
 
-const TopBlock = ({id}) => {
-  if(!id)  return (
+const TopBlock = ({ countryDetails}) => {
+  if(!countryDetails)  return (
             <div className="TopBlock " >
                 <div className="choose__country">
                     <div className="choose__image">
@@ -27,3 +28,7 @@ const TopBlock = ({id}) => {
 }
 
 export default TopBlock;
+
+TopBlock.propTypes ={
+   countryDetails: PropTypes.bool
+}

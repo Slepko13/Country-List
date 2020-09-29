@@ -1,11 +1,11 @@
 import React from "react";
-import './MyHeader.scss';
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import './MainHeader.scss';
 import {ArrowBack} from "@material-ui/icons";
+import PropTypes from "prop-types";
 
-const MyHeader = ({countryDetails, setCountryDetails}) => {
+const MainHeader = ({countryDetails, setCountryDetails}) => {
     return (
-        <div className="MyHeader container-fluid" >Country list
+        <div className="MainHeader container-fluid" >Country list
             {countryDetails ?
                 <button
                     className="back__arrow"
@@ -16,4 +16,9 @@ const MyHeader = ({countryDetails, setCountryDetails}) => {
     )
 }
 
-export default MyHeader;
+export default MainHeader;
+
+MainHeader.propTypes = {
+    countryDetails: PropTypes.bool,
+    setCountryDetails: PropTypes.func
+}

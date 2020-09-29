@@ -13,7 +13,6 @@ export const COUNTRIES = gql`
             flag{
                 svgFile
             }
-
         }
     }
 `;

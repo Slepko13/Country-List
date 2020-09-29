@@ -1,34 +1,34 @@
 import React from "react";
-import DataView from "./DataView";
+import DataViewMobile from "./DataViewMobile";
 import { act, render,cleanup, screen } from '@testing-library/react';
 import {MockedProvider} from "@apollo/client/testing";
 import CountryDetails from "../CountryDetails";
 
-const setUp = (props) => shallow(<DataView {...props}/>)
+const setUp = (props) => shallow(<DataViewMobile {...props}/>)
 
 describe("my DataViewMobile component", () => {
 
 
     it("should render DataViewMobile  Component with props(snapshot)", () => {
-        let component = shallow(<DataView title="Capital" data="London" position="" addictions=""/>);
+        let component = shallow(<DataViewMobile title="Capital" data="London" position="" addictions=""/>);
         expect(component).toMatchSnapshot();
     });
 
     it("should render DataViewMobile  Component without props(snapshot)", () => {
-        let component = shallow(<DataView />);
+        let component = shallow(<DataViewMobile />);
         expect(component).toMatchSnapshot();
     });
 
     it("should render DataViewMobile  additional classname depending on props ", () => {
         const { container, getByTestId } = render(
-                <DataView position="left" />
+                <DataViewMobile position="left" />
         );
         expect(getByTestId('position')).toHaveClass('left');
     });
 
     it("should render DataViewMobile without additional classname depending on props ", () => {
         const { container, getByTestId } = render(
-            <DataView position={null} />
+            <DataViewMobile position={null} />
         );
         expect(container.firstChild.classList.contains('left')).toBe(false)
     });
@@ -36,19 +36,19 @@ describe("my DataViewMobile component", () => {
 
     it("should render correct data when incoming data is empty string", () => {
 
-        let component = shallow(<DataView title="Capital" data="" position="" addictions=""/>);
+        let component = shallow(<DataViewMobile title="Capital" data="" position="" addictions=""/>);
         expect(component.find(".info__content").text()).toEqual('n/a');
     });
 
     it("should render correct data when incoming data is 'Kiev'", () => {
 
-        let component = shallow(<DataView title="Capital" data="Kiev" position="" addictions=""/>);
+        let component = shallow(<DataViewMobile title="Capital" data="Kiev" position="" addictions=""/>);
         expect(component.find(".info__content").text()).toEqual('Kyiv');
     });
 
     it("should render correct data with custom incoming data", () => {
 
-        let component = shallow(<DataView title="Capital" data="Paris" position="" addictions=""/>);
+        let component = shallow(<DataViewMobile title="Capital" data="Paris" position="" addictions=""/>);
         expect(component.find(".info__content").text()).toEqual('Paris');
     });
 
