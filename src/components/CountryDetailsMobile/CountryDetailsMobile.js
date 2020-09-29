@@ -1,37 +1,35 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import './CountryDetailsMobile.scss'
 
-import {  useQuery} from '@apollo/client';
+import {useQuery} from '@apollo/client';
 
 
 import {COUNTRY} from './query';
-import DataView from "../CoutryDetails/DataView/DataView";
 import DataViewList from "../CoutryDetails/DataViewList/DataViewList";
 import DataViewLanguages from "../CoutryDetails/DataViewLanguages/DataViewLanguages";
-
-
+import DataViewMobile from "./DataViewMobile/DataViewMobile";
+import DataViewLanguagesMobile from "./DataViewLanguagesMobile/DataViewLanguagesMobile";
+import DataViewListMobile from "./DataViewListMobile/DataViewListMobile";
 
 
 const CountryDetailsMobile = ({id, countryDetails}) => {
-    const { loading, error, data } = useQuery(COUNTRY,{
+    const {loading, error, data} = useQuery(COUNTRY, {
         variables: {name: id}
     });
-    if(!id) return null;
+    if (!id) return null;
     if (loading) return <div
         className="CountryDetailsMobile "
-        style={countryDetails? { transform: "translateX(0)", height: "100%" } : null}
     ><p className="loading">Loading...</p></div>;
     if (error) return <div
         className="CountryDetailsMobile "
-        style={countryDetails? { transform: "translateX(0)", height: "100%" } : null}
     ><p className="error">Error :(</p></div>;
 
-
-    const{
+    const {
         name,
         population,
         capital,
-        flag:{svgFile :flag},
+        flag: {svgFile: flag},
         subregion,
         currencies,
         timezones,
@@ -40,69 +38,80 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
     } = data.Country[0];
 
     const region = subregion ? subregion.region.name : "n/a";
-    const currency = currencies.length ? currencies : "n/a";
-    const callCode = callingCodes.length ? callingCodes : "n/a";
-    const officialLanguage = officialLanguages.length ? officialLanguages : "n/a";
-    let  popul, unit;
+    let popul, unit;
 
     if (population > 1000000) {
-        popul = (Math.round(population/10000)/100).toLocaleString("pl");
+        popul = (Math.round(population / 10000) / 100).toLocaleString("pl");
         unit = "m";
     } else {
-        popul = (Math.round(population/10)/100).toLocaleString("pl");
+        popul = (Math.round(population / 10) / 100).toLocaleString("pl");
         unit = "t"
     }
 
     return (
         <div
             className="CountryDetailsMobile "
-            style={!countryDetails? { transform: "translateX(100%)", display: "none"} : null}
+            style={!countryDetails ? {
+                display: "none"
+            } : null}
+            data-testid="CountryDetailsMobile"
         >
             <div className="country">
-                <div className="country__block">
+                <div className="country__block"
+                     data-testid="country"
+                >
                     <div className="item__flag">
-                        <img className="flag__image"  src={flag} alt="flag"/>
+                        <img className="flag__image" src={flag} alt="flag"/>
                     </div>
-                    <DataView
+                    <DataViewMobile
                         title="Country"
                         data={name}
                         position=""
                     />
-                    <DataView
+
+                    <DataViewMobile
                         title="Capital"
                         data={capital}
                         position="left"
                     />
-                    <DataView
-                        title="Region"
-                        data={region}
-                        position="right"
-                    />
-                    <DataView
-                        title="Population"
-                        data={popul}
-                        position=""
-                        addictions={unit}
-                    />
-                    <DataViewList
+                    <div className="info two"
+                         data-testid="data">
+                        <DataViewMobile
+                            title="Region"
+                            data={region}
+                            position="right"
+                        />
+                    </div>
+                    <div
+                        data-testid="unit"
+                        className="info three">
+                        <DataViewMobile
+                            title="Population"
+                            data={popul}
+                            position=""
+                            addictions={unit}
+                        />
+                    </div>
+                    <DataViewListMobile
                         title="Time zone"
                         data={timezones}
                         position=""
                         addictions=""
                     />
-                    <DataViewList
+
+                    <DataViewListMobile
                         title="Currencies"
                         data={currencies}
                         position="left"
                         addictions=""
                     />
-                    <DataViewList
+                    <DataViewListMobile
                         title="Calling codes"
                         data={callingCodes}
                         position=""
                         addictions="+"
                     />
-                    <DataViewLanguages
+                    <DataViewLanguagesMobile
                         title="Official languages"
                         data={officialLanguages}
                         direction="row"
@@ -113,7 +122,10 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
             </div>
         </div>
     )
-
 }
 
 export default CountryDetailsMobile;
+CountryDetailsMobile.propTypes = {
+    id: PropTypes.string,
+    countryDetails: PropTypes.bool
+}

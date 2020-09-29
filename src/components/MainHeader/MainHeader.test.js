@@ -1,26 +1,26 @@
 import React from "react";
 import { create, act } from "react-test-renderer";
-import MyHeader from "./MyHeader";
+import MainHeader from "./MainHeader";
 import {ArrowBack} from "@material-ui/icons";
 
 
-describe("MyHeader component", () => {
+describe("MainHeader component", () => {
 
-    test("it should shows MyHeader component", () => {
+    test("it should shows MainHeader component", () => {
         let component;
         act(() => {
             component =
-                create(<MyHeader />);
+                create(<MainHeader />);
         });
         const instance = component.root;
         expect(instance).not.toBeNull();
     });
 
-    test("it should shows correct title in MyHeader component", () => {
+    test("it should shows correct title in MainHeader component", () => {
         let component;
         act(() => {
             component =
-                create(<MyHeader countryDetails={true}/>);
+                create(<MainHeader countryDetails={true}/>);
         });
         const instance = component.root;
         const title = instance.findByType("div");
@@ -31,7 +31,7 @@ describe("MyHeader component", () => {
         let component;
         act(() => {
             component =
-                create(<MyHeader countryDetails={true} setCountryDetails={()=>{}}/>);
+                create(<MainHeader countryDetails={true} setCountryDetails={()=>{}}/>);
         });
         const instance = component.root;
         const button = instance.findByType("button");
@@ -42,7 +42,7 @@ describe("MyHeader component", () => {
         let component;
         act(() => {
             component =
-                create(<MyHeader countryDetails={false} setCountryDetails={()=>{}}/>);
+                create(<MainHeader countryDetails={false} setCountryDetails={()=>{}}/>);
         });
         const instance = component.root;
 
@@ -55,7 +55,7 @@ describe("MyHeader component", () => {
         let component;
         act(() => {
             component =
-                create(<MyHeader countryDetails={true} setCountryDetails={()=>{}}/>);
+                create(<MainHeader countryDetails={true} setCountryDetails={()=>{}}/>);
         });
         const instance = component.root;
         const button = instance.findByType("button");
@@ -68,7 +68,7 @@ describe("MyHeader component", () => {
         let setCountryDetailsSpy = jest.fn();
         act(() => {
             component =
-                create(<MyHeader countryDetails={true} setCountryDetails={setCountryDetailsSpy}/>);
+                create(<MainHeader countryDetails={true} setCountryDetails={setCountryDetailsSpy}/>);
         });
         const instance = component.root;
         let button = instance.findByType("button");

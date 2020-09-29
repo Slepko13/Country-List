@@ -10,7 +10,6 @@ export const COUNTRY = gql`
                 name
             }
             subregion {
-                name
                 region {
                     name
                 }

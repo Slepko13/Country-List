@@ -1,14 +1,14 @@
 import React from 'react';
-import './DataView.scss';
+import './DataViewMobile.scss';
 import PropTypes from "prop-types";
 
-const DataView = (props) => {
+const DataViewMobile = (props) => {
     let {title, data, position, addictions} = props;
     data = data === "" ? "n/a" : data === "Kiev" ? "Kyiv" : data;
     return (
         <div className={position ?
-            `DataView ${position}` :
-            "DataView"}
+            `DataViewMobile ${position}` :
+            "DataViewMobile"}
              data-testid="position"
         >
             <div className="info__title">{title}</div>
@@ -16,9 +16,9 @@ const DataView = (props) => {
         </div>
     )
 }
-export default DataView;
+export default DataViewMobile;
 
-DataView.propTypes = {
+DataViewMobile.propTypes = {
     title: PropTypes.string,
     data: PropTypes.string,
     position: PropTypes.string,

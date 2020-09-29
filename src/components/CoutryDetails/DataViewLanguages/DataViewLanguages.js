@@ -1,14 +1,13 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import './DataViewLanguages.scss';
-
 import SeeMore from "../SeeMore/SeeMore";
-
 
 const DataViewLanguages = (props) =>{
 
     let{title, data, position} = props;
     let myData, restData;
-    if(!data)    return  <div className={position ? `DataViewLanguages ${position}`: "DataViewLanguages"}>
+    if(!data)    return  <div className={position ? `DataViewLanguages ${position}`: "DataViewLanguages"} data-testid = "position">
         <div className="absent">Data is absent today</div>
     </div>;
 
@@ -19,7 +18,8 @@ const DataViewLanguages = (props) =>{
        restData = data.slice(3);
    }
     return (
-        <div className={position ? `DataViewLanguages + ${position} `: "DataViewLanguages"}>
+        <div className={position ? `DataViewLanguages + ${position} `: "DataViewLanguages"}
+        >
             <div className="info__title">{title}</div>
             <div className="info__content">{
                 myData.length ?
@@ -45,3 +45,9 @@ const DataViewLanguages = (props) =>{
 }
 
 export default DataViewLanguages;
+
+DataViewLanguages.propTypes = {
+    title: PropTypes.string,
+    data: PropTypes.array,
+    position: PropTypes.string
+}

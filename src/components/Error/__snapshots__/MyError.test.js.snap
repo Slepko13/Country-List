@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`my Error component should render Error Component  1`] = `
+<div
+  className="Error"
+>
+  Sorry,  you got an error: 
+  some error
+</div>
+`;
+
+exports[`my Error component should render Error Component with props(snapshot) 1`] = `
+<div
+  className="Error"
+>
+  Sorry,  you got an error: 
+  Server error
+</div>
+`;
+
+exports[`my Error component should render Error Component without props(snapshot) 1`] = `
+<div
+  className="Error"
+>
+  Sorry,  you got an error: 
+  some error
+</div>
+`;

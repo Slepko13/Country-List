@@ -1,7 +1,6 @@
 import React, { useState} from 'react';
+import PropTypes from 'prop-types';
 import './SeeMore.scss';
-
-
 
 const SeeMore = ({data,top, bottom,left,right})=>{
     const [list, setList] = useState(false);
@@ -24,3 +23,10 @@ return (
 }
 
 export default SeeMore;
+SeeMore.propTypes ={
+    data: PropTypes.array,
+    top: PropTypes.string,
+    bottom: PropTypes.string,
+    left: PropTypes.string,
+    right: PropTypes.string
+}

@@ -1,21 +1,21 @@
 import React from "react";
-import DataViewLanguages from "./DataViewLanguages";
-import DataViewList from "../DataViewList/DataViewList";
+import DataViewLanguagesMobile from "./DataViewLanguagesMobile";
+import DataViewList from "../DataViewListMobile/DataViewListMobile";
 import {render} from "@testing-library/react";
-import DataView from "../DataView/DataView";
+import DataView from "../DataViewMobile/DataViewMobile";
 
 
 describe("my DataViewLanguagesMobile component", () => {
     it("should renders with  additional classname depending on props ", () => {
         const { container, getByTestId } = render(
-            <DataViewLanguages position="left" />
+            <DataViewLanguagesMobile position="left" />
         );
         expect(getByTestId('position')).toHaveClass('left');
     });
 
     it("should render  without additional classname depending on props ", () => {
         const { container, getByTestId } = render(
-            <DataViewLanguages position={null} />
+            <DataViewLanguagesMobile position={null} />
         );
         expect(container.firstChild.classList.contains('left')).toBe(false)
     });
@@ -26,7 +26,7 @@ describe("my DataViewLanguagesMobile component", () => {
             title :"Languages",
             position: "left"
         }
-        const component = shallow(<DataViewLanguages {...props}/>);
+        const component = shallow(<DataViewLanguagesMobile {...props}/>);
         it("should renders 'n/a ", () => {
             expect(component.find('.item').text()).toEqual('n/a');
         });
@@ -36,7 +36,7 @@ describe("my DataViewLanguagesMobile component", () => {
             title :"Languages",
             position: "left"
         }
-        const component = shallow(<DataViewLanguages {...props}/>);
+        const component = shallow(<DataViewLanguagesMobile {...props}/>);
         it("should renders 'Data is absent today ", () => {
             expect(component.find('.absent').text()).toEqual('Data is absent today');
         });
@@ -49,7 +49,7 @@ describe("my DataViewLanguagesMobile component", () => {
             ],
             title :"Languages",
         }
-        const component = shallow(<DataViewLanguages {...props}/>);
+        const component = shallow(<DataViewLanguagesMobile {...props}/>);
         it("should renders correct className", () => {
             expect(component.find('.DataViewLanguagesMobile')).toHaveLength(1);
         });
@@ -65,7 +65,7 @@ describe("my DataViewLanguagesMobile component", () => {
             title :"Languages",
             position: "left"
         }
-        const component = shallow(<DataViewLanguages {...props}/>);
+        const component = shallow(<DataViewLanguagesMobile {...props}/>);
         it("should renders 2 items ", () => {
             expect(component.find('div.item')).toHaveLength(2);
         });
@@ -87,7 +87,7 @@ describe("my DataViewLanguagesMobile component", () => {
             title :"Languages",
             position: "left"
         }
-        const component = shallow(<DataViewLanguages {...props}/>);
+        const component = shallow(<DataViewLanguagesMobile {...props}/>);
 
         it("should renders properly ", () => {
             expect(component).toMatchSnapshot();

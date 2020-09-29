@@ -1,73 +1,73 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 import './CountryDetails.scss';
-import DataView from "./DataView/DataView";
 
-import {  useQuery} from '@apollo/client';
+import {useQuery} from '@apollo/client';
+import {COUNTRY} from './query';
 
-import flags from '../../assets/images/flags.png';
 import earth from '../../assets/images/happy_earth.png';
 import earthFull from '../../assets/images/happy_earth_ellipses.png'
 
-import {COUNTRY} from './query';
+import DataView from "./DataView/DataView";
 import DataViewLanguages from "./DataViewLanguages/DataViewLanguages";
 import DataViewList from "./DataViewList/DataViewList";
 
 
-
 const CountryDetails = ({id}) => {
 
-    const { loading, error, data } = useQuery(COUNTRY,{
+    const {loading, error, data} = useQuery(COUNTRY, {
         variables: {name: id}
     });
     if (loading) return <div className="CountryDetails "><p className="loading">Loading...</p></div>;
     if (error) return <div className="CountryDetails "><p className="error">Error :(</p></div>;
 
-    if(!id)  return (
-        <div className="CountryDetails " >
-          <div className="choose__country">
-            <div className="choose__image">
-                <img src={earth} width={266} height={266} alt="happy earth"/>
+    if (!id) return (
+        <div className="CountryDetails ">
+            <div className="choose__country">
+                <div className="choose__image">
+                    <img src={earth} width={266} height={266} alt="happy earth"/>
+                </div>
+                <div className="choose__title">Choose a card :)</div>
             </div>
-              <div className="choose__title">Choose a card :)</div>
-          </div>
         </div>
     )
 
-const{
-    name,
-    population,
-    capital,
-    flag:{svgFile :flag},
-    subregion,
-    currencies,
-    timezones,
-    callingCodes,
-    officialLanguages
-} = data.Country[0];
+    const {
+        name,
+        population,
+        capital,
+        flag: {svgFile: flag},
+        subregion,
+        currencies,
+        timezones,
+        callingCodes,
+        officialLanguages
+    } = data.Country[0];
 
-const region = subregion ? subregion.region.name : "n/a";
+    const region = subregion ? subregion.region.name : "n/a";
 // const currency = currencies.length ? currencies : "n/a";
 // const callCode = callingCodes.length ? callingCodes : "n/a";
 // const officialLanguage = officialLanguages.length ? officialLanguages : "n/a";
-let  popul, unit;
+    let popul, unit;
 
-if (population > 1000000) {
-    popul = (Math.round(population/10000)/100).toLocaleString("pl");
-    unit = "m";
-} else {
-    popul = (Math.round(population/10)/100).toLocaleString("pl");
-    unit = "t"
-}
+    if (population > 1000000) {
+        popul = (Math.round(population / 10000) / 100).toLocaleString("pl");
+        unit = "m";
+    } else {
+        popul = (Math.round(population / 10) / 100).toLocaleString("pl");
+        unit = "t"
+    }
     return (
         <div className="CountryDetails ">
             <div className="country">
                 <div className="country__top">
-                    <div className="top__flag" style={{backgroundImage : `url(${flag})`}}></div>
+                    <div className="top__flag" style={{backgroundImage: `url(${flag})`}}></div>
                 </div>
                 <div className="country__block"
-                     data-testid = "country"
+                     data-testid="country"
                 >
-                    <img  className="block__image" src={earthFull} />
+                    <img className="block__image" src={earthFull}/>
                     <div className="block__info">
                         <div className="info one">
                             <DataView
@@ -99,12 +99,12 @@ if (population > 1000000) {
                                 addictions={unit}
                             />
                             <DataViewList
-                                        title="Time zone"
-                                        data={timezones}
-                                        position=""
-                                        addictions=""
-                                    />
-                            </div>
+                                title="Time zone"
+                                data={timezones}
+                                position=""
+                                addictions=""
+                            />
+                        </div>
                         <div className="info four">
                             <DataViewList
                                 title="Currencies"
@@ -137,3 +137,7 @@ if (population > 1000000) {
 }
 
 export default CountryDetails;
+
+CountryDetails.propTypes = {
+    id: PropTypes.string
+}

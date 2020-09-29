@@ -1,15 +1,8 @@
 import React from "react";
 import App from './App';
 
-describe("CountryList component", ()=>{
-    // const props = {
-    //     data : [
-    //         {name :"english" },
-    //         {name :"french" },
-    //     ],
-    //     title :"Languages",
-    //     position: "left"
-    // }
+describe("App component", ()=>{
+
     const component = shallow(<App/>);
 
     it("should renders properly ", () => {
