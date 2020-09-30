@@ -5,6 +5,15 @@ exports[`my DataViewMobile component should render DataViewMobile  Component wit
   className="DataViewMobile"
   data-testid="position"
 >
+  <img
+    alt="ellipse"
+    className="ellipse"
+  />
+  <img
+    alt="vector"
+    className="vector"
+    src="Vector 10.png"
+  />
   <div
     className="info__title"
   >
@@ -30,27 +39,15 @@ exports[`my DataViewMobile component should render DataViewMobile  Component wit
   className="DataViewMobile"
   data-testid="position"
 >
-  <div
-    className="info__title"
+  <img
+    alt="ellipse"
+    className="ellipse"
   />
-  <div
-    className="info__content"
-  >
-    <span
-      style={
-        Object {
-          "marginLeft": "10px",
-        }
-      }
-    />
-  </div>
-</div>
-`;
-
-exports[`my DataViewMobile component should render DataViewMobile  additional classname depending on props  1`] = `
-<div
-  className="DataViewMobile + left "
->
+  <img
+    alt="vector"
+    className="vector"
+    src="Vector 10.png"
+  />
   <div
     className="info__title"
   />

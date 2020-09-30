@@ -4,7 +4,7 @@ import './DataViewLanguagesMobile.scss';
 
 const DataViewLanguagesMobile = (props) => {
 
-    let {title, data, position} = props;
+    let {title, data, position, background, picture} = props;
 
     if (!data) return <div
         className={position ?
@@ -20,16 +20,21 @@ const DataViewLanguagesMobile = (props) => {
                 `DataViewLanguagesMobile ${position} ` :
                 "DataViewLanguagesMobile"}
         >
+            <img className="ellipse" src={picture} alt='ellipse'/>
+            <div className="innerVector"/>
+
             <div className="info__title">{title}</div>
-            <div className="info__content">{
-                data.length ?
-                    data.map(item =>
-                        <div
-                            className="item"
-                            key={item.name}
-                        >{item.name}</div>) :
-                    <div className="item">n/a</div>
-            }
+            <div className="info__content">
+                {
+                    data.length ?
+                        data.map(item =>
+                            <div
+                                className="item"
+                                key={item.name}
+                                style={{backgroundColor: background}}
+                            >{item.name}</div>) :
+                        <div className="item">n/a</div>
+                }
             </div>
         </div>
     )
@@ -40,5 +45,7 @@ export default DataViewLanguagesMobile;
 DataViewLanguagesMobile.propTypes = {
     title: PropTypes.string,
     data: PropTypes.array,
-    position: PropTypes.string
+    position: PropTypes.string,
+    background: PropTypes.string,
+    picture: PropTypes.string
 }

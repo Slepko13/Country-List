@@ -2,8 +2,15 @@
 
 exports[`my DataViewLanguagesMobile component data length <= 3 should renders properly  1`] = `
 <div
-  className="DataViewLanguagesMobile + left "
+  className="DataViewLanguagesMobile left "
 >
+  <img
+    alt="ellipse"
+    className="ellipse"
+  />
+  <div
+    className="innerVector"
+  />
   <div
     className="info__title"
   >
@@ -15,12 +22,22 @@ exports[`my DataViewLanguagesMobile component data length <= 3 should renders pr
     <div
       className="item"
       key="english"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
     >
       english
     </div>
     <div
       className="item"
       key="french"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
     >
       french
     </div>
@@ -30,8 +47,15 @@ exports[`my DataViewLanguagesMobile component data length <= 3 should renders pr
 
 exports[`my DataViewLanguagesMobile component data length > 3 should renders properly  1`] = `
 <div
-  className="DataViewLanguagesMobile + left "
+  className="DataViewLanguagesMobile left "
 >
+  <img
+    alt="ellipse"
+    className="ellipse"
+  />
+  <div
+    className="innerVector"
+  />
   <div
     className="info__title"
   >
@@ -43,37 +67,46 @@ exports[`my DataViewLanguagesMobile component data length > 3 should renders pro
     <div
       className="item"
       key="english"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
     >
       english
     </div>
     <div
       className="item"
       key="french"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
     >
       french
     </div>
     <div
       className="item"
       key="german"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
     >
       german
     </div>
     <div
-      className="wrapper"
-    >
-      <SeeMore
-        bottom="20%"
-        data={
-          Array [
-            Object {
-              "name": "polish",
-            },
-          ]
+      className="item"
+      key="polish"
+      style={
+        Object {
+          "backgroundColor": undefined,
         }
-        left=""
-        right=""
-        top=""
-      />
+      }
+    >
+      polish
     </div>
   </div>
 </div>

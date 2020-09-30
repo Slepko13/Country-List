@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataViewListMobile component  data length > 3 should renders properly  1`] = `
+<div
+  className="DataViewListMobile  left "
+>
+  <img
+    alt="ellipse"
+    className="ellipse"
+  />
+  <div
+    className="innerVector"
+    style={
+      Object {
+        "height": undefined,
+      }
+    }
+  />
+  <div
+    className="info__title"
+  >
+    Languages
+  </div>
+  <div
+    className="info__content"
+  >
+    <div
+      className="item"
+      key="english"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      <span>
+         
+        english
+      </span>
+    </div>
+    <div
+      className="item"
+      key="french"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      <span>
+         
+        french
+      </span>
+    </div>
+    <div
+      className="item"
+      key="german"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      <span>
+         
+        german
+      </span>
+    </div>
+    <div
+      className="item"
+      key="polish"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      <span>
+         
+        polish
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataViewListMobile component data length <= 3 should renders properly  1`] = `
+<div
+  className="DataViewListMobile  left "
+>
+  <img
+    alt="ellipse"
+    className="ellipse"
+  />
+  <div
+    className="innerVector"
+    style={
+      Object {
+        "height": undefined,
+      }
+    }
+  />
+  <div
+    className="info__title"
+  >
+    Languages
+  </div>
+  <div
+    className="info__content"
+  >
+    <div
+      className="item"
+      key="english"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      <span>
+         
+        english
+      </span>
+    </div>
+    <div
+      className="item"
+      key="french"
+      style={
+        Object {
+          "backgroundColor": undefined,
+        }
+      }
+    >
+      <span>
+         
+        french
+      </span>
+    </div>
+  </div>
+</div>
+`;

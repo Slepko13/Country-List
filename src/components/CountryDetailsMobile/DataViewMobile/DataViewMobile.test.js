@@ -1,10 +1,7 @@
 import React from "react";
 import DataViewMobile from "./DataViewMobile";
-import { act, render,cleanup, screen } from '@testing-library/react';
-import {MockedProvider} from "@apollo/client/testing";
-import CountryDetails from "../CountryDetails";
+import {render} from '@testing-library/react';
 
-const setUp = (props) => shallow(<DataViewMobile {...props}/>)
 
 describe("my DataViewMobile component", () => {
 
@@ -15,20 +12,20 @@ describe("my DataViewMobile component", () => {
     });
 
     it("should render DataViewMobile  Component without props(snapshot)", () => {
-        let component = shallow(<DataViewMobile />);
+        let component = shallow(<DataViewMobile/>);
         expect(component).toMatchSnapshot();
     });
 
     it("should render DataViewMobile  additional classname depending on props ", () => {
-        const { container, getByTestId } = render(
-                <DataViewMobile position="left" />
+        const {getByTestId} = render(
+            <DataViewMobile position="left"/>
         );
         expect(getByTestId('position')).toHaveClass('left');
     });
 
     it("should render DataViewMobile without additional classname depending on props ", () => {
-        const { container, getByTestId } = render(
-            <DataViewMobile position={null} />
+        const {container} = render(
+            <DataViewMobile position={null}/>
         );
         expect(container.firstChild.classList.contains('left')).toBe(false)
     });

@@ -1,12 +1,26 @@
 .DataViewLanguagesMobile {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 25px 90px;
 
-  @media screen and (max-width: 991px) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    margin: 0 0 20px 20px;
+  .ellipse {
+    position: absolute;
+    top: 10px;
+    right: 100%;
+    margin: 0 25px 0 0;
+  }
+
+  .innerVector {
+    position: absolute;
+    width: 12px;
+    height: 98%;
+    background: url("../../../assets/images/Vector 10.png") center top;
+    top: 38px;
+    right: 100%;
+    margin: 0 25px 0 0;
+    transform: translateX(-50%);
   }
 
   .info__title {
@@ -22,23 +36,21 @@
     font-family: "Roboto";
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 24px;
     text-align: center;
     color: #313131;
     display: flex;
-    justify-content: center;
-    @media screen and (max-width: 991px) {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+
 
     .item {
-      line-height: 28px;
-      margin-right: 10px;
-
+      line-height: 23px;
+      margin: 5px 10px 5px 0;
+      border-radius: 18px;
+      padding: 3px 10px;
     }
 
     .wrapper {

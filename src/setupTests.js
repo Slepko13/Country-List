@@ -10,9 +10,16 @@ import toJson from 'enzyme-to-json';
 // React 16 Enzyme adapter
 Enzyme.configure({ adapter: new Adapter() });
 
+// eslint-disable-next-line no-undef
 global.shallow = shallow;
+
+// eslint-disable-next-line no-undef
 global.render = render;
+
+// eslint-disable-next-line no-undef
 global.mount = mount;
+
+// eslint-disable-next-line no-undef
 global.toJson = toJson;
 
 // Fail tests on any warning
