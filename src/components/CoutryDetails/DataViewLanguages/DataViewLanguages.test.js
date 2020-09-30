@@ -51,7 +51,7 @@ describe("my DataViewLanguagesMobile component", () => {
         }
         const component = shallow(<DataViewLanguages {...props}/>);
         it("should renders correct className", () => {
-            expect(component.find('.DataViewLanguagesMobile')).toHaveLength(1);
+            expect(component.find('.DataViewLanguages')).toHaveLength(1);
         });
     });
 

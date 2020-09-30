@@ -2,7 +2,7 @@
 
 exports[`my DataViewMobile component should render DataViewMobile  Component with props(snapshot) 1`] = `
 <div
-  className="DataViewMobile"
+  className="DataView"
   data-testid="position"
 >
   <div
@@ -12,6 +12,11 @@ exports[`my DataViewMobile component should render DataViewMobile  Component wit
   </div>
   <div
     className="info__content"
+    style={
+      Object {
+        "maxWidth": undefined,
+      }
+    }
   >
     London
     <span
@@ -27,7 +32,7 @@ exports[`my DataViewMobile component should render DataViewMobile  Component wit
 
 exports[`my DataViewMobile component should render DataViewMobile  Component without props(snapshot) 1`] = `
 <div
-  className="DataViewMobile"
+  className="DataView"
   data-testid="position"
 >
   <div
@@ -35,27 +40,11 @@ exports[`my DataViewMobile component should render DataViewMobile  Component wit
   />
   <div
     className="info__content"
-  >
-    <span
-      style={
-        Object {
-          "marginLeft": "10px",
-        }
+    style={
+      Object {
+        "maxWidth": undefined,
       }
-    />
-  </div>
-</div>
-`;
-
-exports[`my DataViewMobile component should render DataViewMobile  additional classname depending on props  1`] = `
-<div
-  className="DataViewMobile + left "
->
-  <div
-    className="info__title"
-  />
-  <div
-    className="info__content"
+    }
   >
     <span
       style={

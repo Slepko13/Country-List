@@ -93,6 +93,7 @@ async function wait(ms = 0) {
         });
     });
 }
+
 afterEach(cleanup);
 
 describe('CountryList', () => {
@@ -116,7 +117,7 @@ describe('CountryList', () => {
 
         await wait();
 
-        expect(container.textContent).toMatch(' Sorry,  you got an error: some error');
+        expect(container.textContent).toMatch('Sorry,  you got an error: some error');
     });
 
     it('renders correct texts in card ', async () => {
@@ -148,7 +149,7 @@ describe('CountryList', () => {
     });
 
     it('renders without capital', async () => {
-        const { queryByTestId} = render(
+        const {queryByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocksEmptyCapital}>
                 <CountryList setId={() => {
                 }}/>
@@ -160,7 +161,7 @@ describe('CountryList', () => {
     });
 
     it('renders without subregion', async () => {
-        const { queryByTestId} = render(
+        const {queryByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocksEmptySubregion}>
                 <CountryList setId={() => {
                 }}/>
@@ -171,7 +172,7 @@ describe('CountryList', () => {
     });
 
     it('renders without data', async () => {
-        const { getByText} = render(
+        const {getByText} = render(
             <MockedProvider addTypename={false} mocks={dataMocksEmpty}>
                 <CountryList setId={() => {
                 }}/>
@@ -183,7 +184,7 @@ describe('CountryList', () => {
 
     it('setId should be called', async () => {
         const setIdSpy = jest.fn();
-        const { getByTestId} = render(
+        const {getByTestId} = render(
             <MockedProvider addTypename={false} mocks={dataMocks}>
                 <CountryList setId={setIdSpy}/>
             </MockedProvider>

@@ -4,13 +4,12 @@ import './CountryDetailsMobile.scss'
 
 import {useQuery} from '@apollo/client';
 
-
 import {COUNTRY} from './query';
-import DataViewList from "../CoutryDetails/DataViewList/DataViewList";
-import DataViewLanguages from "../CoutryDetails/DataViewLanguages/DataViewLanguages";
 import DataViewMobile from "./DataViewMobile/DataViewMobile";
 import DataViewLanguagesMobile from "./DataViewLanguagesMobile/DataViewLanguagesMobile";
 import DataViewListMobile from "./DataViewListMobile/DataViewListMobile";
+import redEllipse from '../../assets/images/Ellipse 9.png';
+import greenEllipse from '../../assets/images/Ellipse 10.png'
 
 
 const CountryDetailsMobile = ({id, countryDetails}) => {
@@ -67,12 +66,15 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
                         title="Country"
                         data={name}
                         position=""
+                        picture={redEllipse}
                     />
 
                     <DataViewMobile
                         title="Capital"
                         data={capital}
                         position="left"
+                        picture={greenEllipse}
+
                     />
                     <div className="info two"
                          data-testid="data">
@@ -80,6 +82,7 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
                             title="Region"
                             data={region}
                             position="right"
+                            picture={redEllipse}
                         />
                     </div>
                     <div
@@ -90,33 +93,42 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
                             data={popul}
                             position=""
                             addictions={unit}
+                            picture={greenEllipse}
                         />
                     </div>
-                    <DataViewListMobile
-                        title="Time zone"
-                        data={timezones}
-                        position=""
-                        addictions=""
-                    />
-
                     <DataViewListMobile
                         title="Currencies"
                         data={currencies}
                         position="left"
                         addictions=""
-                    />
-                    <DataViewListMobile
-                        title="Calling codes"
-                        data={callingCodes}
-                        position=""
-                        addictions="+"
+                        background="#FFE4A4"
+                        picture={redEllipse}
                     />
                     <DataViewLanguagesMobile
                         title="Official languages"
                         data={officialLanguages}
                         direction="row"
                         position=""
+                        background="#FBD3C0"
+                        picture={greenEllipse}
+                    />
+
+                    <DataViewListMobile
+                        title="Time zone"
+                        data={timezones}
+                        position=""
                         addictions=""
+                        background="#B9EAC3"
+                        picture={redEllipse}
+                    />
+                    <DataViewListMobile
+                        title="Calling codes"
+                        data={callingCodes}
+                        position=""
+                        addictions="+"
+                        background="#A6E6FD"
+                        picture={greenEllipse}
+                        vectorHeight="0"
                     />
                 </div>
             </div>

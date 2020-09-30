@@ -67,13 +67,14 @@ const CountryDetails = ({id}) => {
                 <div className="country__block"
                      data-testid="country"
                 >
-                    <img className="block__image" src={earthFull}/>
+                    <img className="block__image" src={earthFull} alt="earth"/>
                     <div className="block__info">
                         <div className="info one">
                             <DataView
                                 title="Country"
                                 data={name}
                                 position=""
+                                maxWidth="800px"
                             />
                         </div>
                         <div className="info two"
@@ -133,7 +134,6 @@ const CountryDetails = ({id}) => {
             </div>
         </div>
     )
-
 }
 
 export default CountryDetails;

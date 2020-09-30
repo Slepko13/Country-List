@@ -1,37 +1,23 @@
 import React from "react";
 import DataViewListMobile from "./DataViewListMobile";
 import {render} from "@testing-library/react";
-import DataViewLanguages from "../DataViewLanguagesMobile/DataViewLanguagesMobile";
 
 
 describe("DataViewListMobile component", () => {
     it("should renders with  additional classname depending on props ", () => {
-        const { container, getByTestId } = render(
+        const {  getByTestId } = render(
             <DataViewListMobile position="left" />
         );
         expect(getByTestId('position')).toHaveClass('left');
     });
 
     it("should render  without additional classname depending on props ", () => {
-        const { container, getByTestId } = render(
+        const { container } = render(
             <DataViewListMobile position={null} />
         );
         expect(container.firstChild.classList.contains('left')).toBe(false)
     });
-    describe("symbol is absent", ()=>{
-        const props = {
-            data : [
-                {name :"english" },
-                {name :"french" },
-            ],
-            title :"Languages",
-            position: "left"
-        }
-        const component = shallow(<DataViewListMobile {...props}/>);
-        it("should renders correct symbol text", () => {
-            expect(component.find('.info__content').childAt(0).find('.item__symbol').text()).toEqual('');
-        });
-    });
+
     describe("symbol is string 'null' ", ()=>{
         const props = {
             data : [
@@ -68,7 +54,6 @@ describe("DataViewListMobile component", () => {
                 {name :"french" },
             ],
             title :"Languages",
-            // position: "left"
         }
         const component = shallow(<DataViewListMobile {...props}/>);
         it("should renders correct className", () => {
@@ -131,10 +116,7 @@ describe("DataViewListMobile component", () => {
             expect(component).toMatchSnapshot();
         });
 
-        it("should renders 3 items and SeeMore ", () => {
-            expect(component.find('div.item')).toHaveLength(3);
-            expect(component.find('SeeMore')).toHaveLength(1);
-        });
+
     });
 });
 

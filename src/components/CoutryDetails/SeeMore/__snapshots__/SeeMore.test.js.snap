@@ -20,24 +20,3 @@ exports[`my SeeMore component should render SeeMore  Component with props(snapsh
   </button>
 </div>
 `;
-
-exports[`my SeeMore component should render SeeMore  list 1`] = `
-<div
-  className="SeeMore"
-  style={
-    Object {
-      "bottom": "0",
-      "left": "0",
-      "right": "0",
-      "top": "0",
-    }
-  }
->
-  <button
-    className="openButton"
-    onClick={[Function]}
-  >
-    See more
-  </button>
-</div>
-`;

@@ -1,9 +1,11 @@
 import React from 'react';
-import './DataViewMobile.scss';
 import PropTypes from "prop-types";
 
+import './DataViewMobile.scss';
+import vector from '../../../assets/images/Vector 10.png';
+
 const DataViewMobile = (props) => {
-    let {title, data, position, addictions} = props;
+    let {title, data, position, addictions, picture} = props;
     data = data === "" ? "n/a" : data === "Kiev" ? "Kyiv" : data;
     return (
         <div className={position ?
@@ -11,8 +13,12 @@ const DataViewMobile = (props) => {
             "DataViewMobile"}
              data-testid="position"
         >
-            <div className="info__title">{title}</div>
-            <div className="info__content">{data}<span style={{marginLeft: "10px"}}>{addictions}</span></div>
+            <img className="ellipse" src={picture} alt='ellipse'/>
+            <img className="vector" src={vector} alt='vector'/>
+            <div className="info__title">
+                {title}</div>
+            <div className="info__content">
+                {data}<span style={{marginLeft: "10px"}}>{addictions}</span></div>
         </div>
     )
 }
@@ -22,5 +28,6 @@ DataViewMobile.propTypes = {
     title: PropTypes.string,
     data: PropTypes.string,
     position: PropTypes.string,
-    addictions: PropTypes.string
+    addictions: PropTypes.string,
+    picture: PropTypes.string,
 }

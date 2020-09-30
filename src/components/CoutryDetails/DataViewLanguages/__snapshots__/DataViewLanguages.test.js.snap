@@ -2,7 +2,7 @@
 
 exports[`my DataViewLanguagesMobile component data length <= 3 should renders properly  1`] = `
 <div
-  className="DataViewLanguagesMobile + left "
+  className="DataViewLanguages + left "
 >
   <div
     className="info__title"
@@ -30,7 +30,7 @@ exports[`my DataViewLanguagesMobile component data length <= 3 should renders pr
 
 exports[`my DataViewLanguagesMobile component data length > 3 should renders properly  1`] = `
 <div
-  className="DataViewLanguagesMobile + left "
+  className="DataViewLanguages + left "
 >
   <div
     className="info__title"

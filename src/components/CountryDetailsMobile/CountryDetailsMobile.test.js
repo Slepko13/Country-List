@@ -1,6 +1,6 @@
 import React from "react";
 import { MockedProvider  } from '@apollo/client/testing';
-import { act, render,cleanup, screen } from '@testing-library/react';
+import { act, render,cleanup } from '@testing-library/react';
 import { COUNTRY } from './query';
 import CountryDetailsMobile from "./CountryDetailsMobile";
 
@@ -14,13 +14,14 @@ const errorMock = [{
     },
     error: new Error('aw shucks'),
 }];
-const emptyMock = [{
-    request: {
-        query: COUNTRY,
-        variables: { name: 'Ukraine' },
-    },
-    error: new Error('aw shucks'),
-}];
+// eslint-disable-next-line no-unused-vars
+// const emptyMock = [{
+//     request: {
+//         query: COUNTRY,
+//         variables: { name: 'Ukraine' },
+//     },
+//     error: new Error('aw shucks'),
+// }];
 const dataMocks = [
     {
         request: {
@@ -71,37 +72,11 @@ const dataMocksWithOutId = [
         },
         result: {
             data: {
-                // Country: [{
-                //     name: 'France',
-                //     population: 52000000,
-                //     capital: 'Paris',
-                //     officialLanguages: {
-                //         name: 'french'
-                //     },
-                //     subregion: {
-                //         region: {
-                //             name: 'Europe'
-                //         }
-                //     },
-                //     currencies: {
-                //         name: "Euro",
-                //         symbol: "₴"
-                //     },
-                //     flag: {
-                //         svgFile: "flag"
-                //     },
-                //     callingCodes: {
-                //         name: 33
-                //     },
-                //     timezones: {
-                //         name:"UTM+01:00"
-                //     }
-                // }]
             }
         }
     }
 ];
-const dataMocksWithPopullationT = [
+const dataMocksWithPopulationT = [
     {
         request: {
             query: COUNTRY,
@@ -187,7 +162,7 @@ async function wait(ms = 0) {
             setTimeout(resolve, ms);
         });
     });
-};
+}
 afterEach(cleanup);
 
 describe('CountryDetailsMobile', ()=>{
@@ -206,14 +181,13 @@ describe('CountryDetailsMobile', ()=>{
                 <CountryDetailsMobile id={null} />
             </MockedProvider>
         );
-        // expect(container.textContent).toBe('');
         expect(container).toBeEmpty();
 
         await wait();
     });
 
     it('renders with id', async () => {
-        const { container, getByTestId } = render(
+        const { getByTestId } = render(
             <MockedProvider addTypename={false} mocks={dataMocks}>
                 <CountryDetailsMobile id={'France'} />
             </MockedProvider>
@@ -235,7 +209,7 @@ describe('CountryDetailsMobile', ()=>{
     });
     it('renders with id and population  less that 1 million', async () => {
         const { container, getByTestId } = render(
-            <MockedProvider addTypename={false} mocks={dataMocksWithPopullationT}>
+            <MockedProvider addTypename={false} mocks={dataMocksWithPopulationT}>
                 <CountryDetailsMobile id={'France'} />
             </MockedProvider>
         );
@@ -245,7 +219,7 @@ describe('CountryDetailsMobile', ()=>{
     });
 
     it('renders with id and subregion is null ', async () => {
-        const { container, getByTestId } = render(
+        const {  getByTestId } = render(
             <MockedProvider addTypename={false} mocks={dataMocksWithSubregionNull}>
                 <CountryDetailsMobile id={'France'} />
             </MockedProvider>
@@ -254,7 +228,7 @@ describe('CountryDetailsMobile', ()=>{
         expect(getByTestId("data")).toHaveTextContent("n/a");
     });
     it('visible when  countryDetails is true', async () => {
-        const { container, getByTestId } = render(
+        const {  getByTestId } = render(
             <MockedProvider addTypename={false} mocks={dataMocks}>
                 <CountryDetailsMobile id={'France'}  countryDetails={true}/>
             </MockedProvider>

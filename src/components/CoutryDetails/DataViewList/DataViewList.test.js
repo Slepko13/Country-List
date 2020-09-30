@@ -72,7 +72,7 @@ describe("DataViewListMobile component", () => {
         }
         const component = shallow(<DataViewList {...props}/>);
         it("should renders correct className", () => {
-         expect(component.find('.DataViewListMobile')).toHaveLength(1);
+         expect(component.find('.DataViewList')).toHaveLength(1);
         });
     });
     describe("data is absent", ()=>{
