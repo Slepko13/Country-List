@@ -1,8 +1,6 @@
 import React from "react";
 import Loader from "./Loader";
 
-const setUp = (props) => shallow(<Loader {...props}/>)
-
 describe("my Loader component", () => {
 
     it("should render Loader Component with props(snapshot)", () => {
@@ -11,7 +9,7 @@ describe("my Loader component", () => {
     });
 
     it("should render Loader Component without props(snapshot)", () => {
-        let component = shallow(<Loader />);
+        let component = shallow(<Loader/>);
         expect(component).toMatchSnapshot();
     });
 });

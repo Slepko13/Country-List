@@ -4,7 +4,15 @@ exports[`my Loader component should render Loader Component with props(snapshot)
 <div
   className="Loader"
 >
-  Here will be my loader....
+  <div>
+    Loading data, please wait....
+  </div>
+  <div>
+    <img
+      alt="spiner"
+      src="spin.png"
+    />
+  </div>
 </div>
 `;
 
@@ -12,6 +20,14 @@ exports[`my Loader component should render Loader Component without props(snapsh
 <div
   className="Loader"
 >
-  Here will be my loader....
+  <div>
+    Loading data, please wait....
+  </div>
+  <div>
+    <img
+      alt="spiner"
+      src="spin.png"
+    />
+  </div>
 </div>
 `;
