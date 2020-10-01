@@ -12,6 +12,7 @@ import earthFull from '../../assets/images/happy_earth_ellipses.png'
 import DataView from "./DataView/DataView";
 import DataViewLanguages from "./DataViewLanguages/DataViewLanguages";
 import DataViewList from "./DataViewList/DataViewList";
+import Loader from "../Loader/Loader";
 
 
 const CountryDetails = ({id}) => {
@@ -19,7 +20,7 @@ const CountryDetails = ({id}) => {
     const {loading, error, data} = useQuery(COUNTRY, {
         variables: {name: id}
     });
-    if (loading) return <div className="CountryDetails "><p className="loading">Loading...</p></div>;
+    if (loading) return <div className="CountryDetails "><Loader/></div>;
     if (error) return <div className="CountryDetails "><p className="error">Error :(</p></div>;
 
     if (!id) return (
