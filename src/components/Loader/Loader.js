@@ -9,7 +9,7 @@ const Loader = () => {
             <div>Loading data, please wait....
             </div>
           <div>
-              <img src={spinner} alt="spiner"/>
+              <img src={spinner} alt="spinner"/>
           </div>
         </div>
     )
