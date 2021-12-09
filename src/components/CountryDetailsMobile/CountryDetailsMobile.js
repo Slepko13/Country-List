@@ -16,6 +16,7 @@ const CountryDetailsMobile = ({ id, countryDetails }) => {
     const { loading, error, data } = useQuery(COUNTRY, {
         variables: { name: id }
     });
+    console.log("Details", data)
     if (!id) return null;
     if (loading) return <div
         className="CountryDetailsMobile "
@@ -38,7 +39,7 @@ const CountryDetailsMobile = ({ id, countryDetails }) => {
     const region = continent ? continent.name : "n/a";
     currency = currency ? currency : "n/a";
     const callCode = phone ? phone : "n/a";
-    const officialLanguages = languages?.length ? languages : "n/a";
+    const officialLanguages = languages;
     const timezones = 'n/a'
     let popul, unit;
     let imageUrl = `https://flagpedia.net/data/flags/w580/${id.toLowerCase()}.png`

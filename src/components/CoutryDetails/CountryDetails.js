@@ -47,9 +47,11 @@ const CountryDetails = ({ id }) => {
 
     const region = continent ? continent.name : "n/a";
     currency = currency ? currency : "n/a";
+    capital = capital ? capital : "n/a";
     const callCode = phone ? phone : "n/a";
-    const officialLanguages = languages?.length ? languages : "n/a";
+    const officialLanguages = languages;
     const timezones = 'n/a'
+
     let popul, unit;
     let imageUrl = `https://flagpedia.net/data/flags/w580/${id.toLowerCase()}.png`
 

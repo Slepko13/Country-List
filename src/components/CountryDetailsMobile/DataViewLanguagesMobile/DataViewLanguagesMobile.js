@@ -4,8 +4,7 @@ import './DataViewLanguagesMobile.scss';
 
 const DataViewLanguagesMobile = (props) => {
 
-    let {title, data, position, background, picture} = props;
-
+    let { title, data, position, background, picture } = props;
     if (!data) return <div
         className={position ?
             `DataViewLanguagesMobile ${position}` :
@@ -14,14 +13,15 @@ const DataViewLanguagesMobile = (props) => {
         <div className="absent">Data is absent today</div>
     </div>;
 
+
     return (
         <div
             className={position ?
                 `DataViewLanguagesMobile ${position} ` :
                 "DataViewLanguagesMobile"}
         >
-            <img className="ellipse" src={picture} alt='ellipse'/>
-            <div className="innerVector"/>
+            <img className="ellipse" src={picture} alt='ellipse' />
+            <div className="innerVector" />
 
             <div className="info__title">{title}</div>
             <div className="info__content">
@@ -31,7 +31,7 @@ const DataViewLanguagesMobile = (props) => {
                             <div
                                 className="item"
                                 key={item.name}
-                                style={{backgroundColor: background}}
+                                style={{ backgroundColor: background }}
                             >{item.name}</div>) :
                         <div className="item">n/a</div>
                 }

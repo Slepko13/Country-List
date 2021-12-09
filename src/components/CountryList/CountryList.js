@@ -13,6 +13,7 @@ function CountryList({ setId }) {
     if (loading) return <div className="CountryList"><Loader /></div>;
     if (error) return <div className="CountryList"><Error /></div>;
     if (!data.countries.length) return <p>Empty data</p>
+    console.log(data.countries, "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
     const renderList = (list) => (
         <div className="CountryList ">
             <div className="list">
@@ -43,14 +44,15 @@ function CountryList({ setId }) {
                                         <div className="info__title">Capital:</div>
                                         <div className="info__data">Kyiv</div>
                                     </div> :
-                                    capital === "" ?
-                                        null :
+                                    capital ?
                                         <div className="info__capital"
                                             data-testid="customCapital"
                                         >
                                             <div className="info__title">Capital:</div>
                                             <div className="info__data">{capital}</div>
                                         </div>
+                                        : <br />
+
                                 }
                                 {continent ?
                                     <div className="info__region"

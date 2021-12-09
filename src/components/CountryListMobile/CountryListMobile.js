@@ -49,14 +49,15 @@ function CountryListMobile({ setId, countryDetails, setCountryDetails }) {
                                     <div className="info__title">Capital:</div>
                                     <div className="info__data">Kyiv</div>
                                 </div> :
-                                capital === "" ?
-                                    null :
+                                capital ?
                                     <div className="info__capital"
                                         data-testid="customCapital"
                                     >
                                         <div className="info__title">Capital:</div>
                                         <div className="info__data">{capital}</div>
                                     </div>
+                                    : <br />
+
                             }
                             {continent ?
                                 <div className="info__region"
