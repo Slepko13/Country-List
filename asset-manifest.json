@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/Country-List/static/css/main.661ddbb3.chunk.css",
-    "main.js": "/Country-List/static/js/main.f905797a.chunk.js",
-    "main.js.map": "/Country-List/static/js/main.f905797a.chunk.js.map",
+    "main.css": "/Country-List/static/css/main.bb8a69d4.chunk.css",
+    "main.js": "/Country-List/static/js/main.def15180.chunk.js",
+    "main.js.map": "/Country-List/static/js/main.def15180.chunk.js.map",
     "runtime-main.js": "/Country-List/static/js/runtime-main.e3ae1870.js",
     "runtime-main.js.map": "/Country-List/static/js/runtime-main.e3ae1870.js.map",
     "static/css/2.d9ad5f5c.chunk.css": "/Country-List/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.01ddaf09.chunk.js": "/Country-List/static/js/2.01ddaf09.chunk.js",
-    "static/js/2.01ddaf09.chunk.js.map": "/Country-List/static/js/2.01ddaf09.chunk.js.map",
+    "static/js/2.872d4a8d.chunk.js": "/Country-List/static/js/2.872d4a8d.chunk.js",
+    "static/js/2.872d4a8d.chunk.js.map": "/Country-List/static/js/2.872d4a8d.chunk.js.map",
     "index.html": "/Country-List/index.html",
-    "precache-manifest.14a2fdcf78d2699f20d349b70dfef50b.js": "/Country-List/precache-manifest.14a2fdcf78d2699f20d349b70dfef50b.js",
+    "precache-manifest.1c9ff23e0ca0d301b07921a9ec0e85ba.js": "/Country-List/precache-manifest.1c9ff23e0ca0d301b07921a9ec0e85ba.js",
     "service-worker.js": "/Country-List/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/Country-List/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.661ddbb3.chunk.css.map": "/Country-List/static/css/main.661ddbb3.chunk.css.map",
-    "static/js/2.01ddaf09.chunk.js.LICENSE.txt": "/Country-List/static/js/2.01ddaf09.chunk.js.LICENSE.txt",
+    "static/css/main.bb8a69d4.chunk.css.map": "/Country-List/static/css/main.bb8a69d4.chunk.css.map",
+    "static/js/2.872d4a8d.chunk.js.LICENSE.txt": "/Country-List/static/js/2.872d4a8d.chunk.js.LICENSE.txt",
     "static/media/TopBlock.scss": "/Country-List/static/media/flags.3efb7b23.png",
     "static/media/happy_earth.png": "/Country-List/static/media/happy_earth.daa64770.png",
-    "static/media/happy_earth_ellipses.png": "/Country-List/static/media/happy_earth_ellipses.c33a86a4.png"
+    "static/media/happy_earth_ellipses.png": "/Country-List/static/media/happy_earth_ellipses.c33a86a4.png",
+    "static/media/spin.png": "/Country-List/static/media/spin.ba475845.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e3ae1870.js",
     "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.01ddaf09.chunk.js",
-    "static/css/main.661ddbb3.chunk.css",
-    "static/js/main.f905797a.chunk.js"
+    "static/js/2.872d4a8d.chunk.js",
+    "static/css/main.bb8a69d4.chunk.css",
+    "static/js/main.def15180.chunk.js"
   ]
 }
