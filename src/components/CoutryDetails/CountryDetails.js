@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import './CountryDetails.scss';
 
-import {useQuery} from '@apollo/client';
-import {COUNTRY} from './query';
+import { useQuery } from '@apollo/client';
+import { COUNTRY } from './query';
 
 import earth from '../../assets/images/happy_earth.png';
 import earthFull from '../../assets/images/happy_earth_ellipses.png'
@@ -15,60 +15,61 @@ import DataViewList from "./DataViewList/DataViewList";
 import Loader from "../Loader/Loader";
 
 
-const CountryDetails = ({id}) => {
-
-    const {loading, error, data} = useQuery(COUNTRY, {
-        variables: {name: id}
-    });
-    if (loading) return <div className="CountryDetails "><Loader/></div>;
-    if (error) return <div className="CountryDetails "><p className="error">Error :(</p></div>;
+const CountryDetails = ({ id }) => {
 
     if (!id) return (
         <div className="CountryDetails ">
             <div className="choose__country">
                 <div className="choose__image">
-                    <img src={earth} width={266} height={266} alt="happy earth"/>
+                    <img src={earth} width={266} height={266} alt="happy earth" />
                 </div>
                 <div className="choose__title">Choose a card :)</div>
             </div>
         </div>
     )
+    const { loading, error, data } = useQuery(COUNTRY, {
+        variables: { name: id }
+    });
+    if (loading) return <div className="CountryDetails "><Loader /></div>;
+    if (error) return <div className="CountryDetails "><p className="error">Error :(</p></div>;
 
-    const {
+
+    let {
         name,
-        population,
+        native: population,
         capital,
-        flag: {svgFile: flag},
-        subregion,
-        currencies,
-        timezones,
-        callingCodes,
-        officialLanguages
-    } = data.Country[0];
+        // flag: {svgFile: flag},
+        continent,
+        currency,
+        phone,
+        languages
+    } = data.country;
 
-    const region = subregion ? subregion.region.name : "n/a";
-// const currency = currencies.length ? currencies : "n/a";
-// const callCode = callingCodes.length ? callingCodes : "n/a";
-// const officialLanguage = officialLanguages.length ? officialLanguages : "n/a";
+    const region = continent ? continent.name : "n/a";
+    currency = currency ? currency : "n/a";
+    const callCode = phone ? phone : "n/a";
+    const officialLanguages = languages?.length ? languages : "n/a";
+    const timezones = 'n/a'
     let popul, unit;
+    let imageUrl = `https://flagpedia.net/data/flags/w580/${id.toLowerCase()}.png`
 
-    if (population > 1000000) {
-        popul = (Math.round(population / 10000) / 100).toLocaleString("pl");
-        unit = "m";
-    } else {
-        popul = (Math.round(population / 10) / 100).toLocaleString("pl");
-        unit = "t"
-    }
+    // if (population > 1000000) {
+    //     popul = (Math.round(population / 10000) / 100).toLocaleString("pl");
+    //     unit = "m";
+    // } else {
+    //     popul = (Math.round(population / 10) / 100).toLocaleString("pl");
+    //     unit = "t"
+    // }
     return (
         <div className="CountryDetails ">
             <div className="country">
                 <div className="country__top">
-                    <div className="top__flag" style={{backgroundImage: `url(${flag})`}}></div>
+                    <div className="top__flag" style={{ backgroundImage: `url(${imageUrl})` }}></div>
                 </div>
                 <div className="country__block"
-                     data-testid="country"
+                    data-testid="country"
                 >
-                    <img className="block__image" src={earthFull} alt="earth"/>
+                    <img className="block__image" src={earthFull} alt="earth" />
                     <div className="block__info">
                         <div className="info one">
                             <DataView
@@ -79,7 +80,7 @@ const CountryDetails = ({id}) => {
                             />
                         </div>
                         <div className="info two"
-                             data-testid="data">
+                            data-testid="data">
                             <DataView
                                 title="Capital"
                                 data={capital}
@@ -95,12 +96,12 @@ const CountryDetails = ({id}) => {
                             data-testid="unit"
                             className="info three">
                             <DataView
-                                title="Population"
-                                data={popul}
+                                title="Native"
+                                data={population}
                                 position=""
                                 addictions={unit}
                             />
-                            <DataViewList
+                            <DataView
                                 title="Time zone"
                                 data={timezones}
                                 position=""
@@ -108,15 +109,15 @@ const CountryDetails = ({id}) => {
                             />
                         </div>
                         <div className="info four">
-                            <DataViewList
+                            <DataView
                                 title="Currencies"
-                                data={currencies}
+                                data={currency}
                                 position="left"
                                 addictions=""
                             />
-                            <DataViewList
+                            <DataView
                                 title="Calling codes"
-                                data={callingCodes}
+                                data={phone}
                                 position=""
                                 addictions="+"
                             />

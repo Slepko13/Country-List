@@ -5,20 +5,22 @@ import './DataViewMobile.scss';
 import vector from '../../../assets/images/Vector 10.png';
 
 const DataViewMobile = (props) => {
-    let {title, data, position, addictions, picture} = props;
+    let { title, data, position, addictions, picture } = props;
     data = data === "" ? "n/a" : data === "Kiev" ? "Kyiv" : data;
     return (
         <div className={position ?
             `DataViewMobile ${position}` :
             "DataViewMobile"}
-             data-testid="position"
+            data-testid="position"
         >
-            <img className="ellipse" src={picture} alt='ellipse'/>
-            <img className="vector" src={vector} alt='vector'/>
+            <img className="ellipse" src={picture} alt='ellipse' />
+            <img className="vector" src={vector} alt='vector' />
             <div className="info__title">
                 {title}</div>
             <div className="info__content">
-                {data}<span style={{marginLeft: "10px"}}>{addictions}</span></div>
+                <span style={{ marginLeft: "10px" }}>{addictions}</span>
+                {data}
+            </div>
         </div>
     )
 }

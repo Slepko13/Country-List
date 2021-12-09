@@ -1,32 +1,18 @@
-import {gql} from "@apollo/client";
+import { gql } from "@apollo/client";
 
 export const COUNTRY = gql`
-    query GetCountry($name: String)  {
-        Country
-        (name: $name)
+    query GetCountry($name: ID!)  {
+        country(code: $name)
         {
             name
-            population
             capital
-            officialLanguages {
+            native
+            continent {
                 name
             }
-            subregion {
-                region {
-                    name
-                }
-            }
-            currencies {
-                name
-                symbol
-            }
-            flag {
-                svgFile
-            }
-            callingCodes {
-                name
-            }
-            timezones {
+            currency
+            phone
+            languages {
                 name
             }
         }

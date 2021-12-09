@@ -1,17 +1,13 @@
-import {gql} from "@apollo/client";
+import { gql } from "@apollo/client";
 
 export const COUNTRIES = gql`
     {
-        Country(orderBy: name_asc) {
+        countries(filter:{}) {
             name
             capital
-            subregion {
-                region {
-                    name
-                }
-            }
-            flag{
-                svgFile
+            code
+            continent {
+            name
             }
         }
     }

@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types'
 import './CountryDetailsMobile.scss'
 
-import {useQuery} from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
-import {COUNTRY} from './query';
+import { COUNTRY } from './query';
 import DataViewMobile from "./DataViewMobile/DataViewMobile";
 import DataViewLanguagesMobile from "./DataViewLanguagesMobile/DataViewLanguagesMobile";
 import DataViewListMobile from "./DataViewListMobile/DataViewListMobile";
@@ -12,9 +12,9 @@ import redEllipse from '../../assets/images/Ellipse 9.png';
 import greenEllipse from '../../assets/images/Ellipse 10.png'
 
 
-const CountryDetailsMobile = ({id, countryDetails}) => {
-    const {loading, error, data} = useQuery(COUNTRY, {
-        variables: {name: id}
+const CountryDetailsMobile = ({ id, countryDetails }) => {
+    const { loading, error, data } = useQuery(COUNTRY, {
+        variables: { name: id }
     });
     if (!id) return null;
     if (loading) return <div
@@ -24,28 +24,33 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
         className="CountryDetailsMobile "
     ><p className="error">Error :(</p></div>;
 
-    const {
+    let {
         name,
-        population,
+        native: population,
         capital,
-        flag: {svgFile: flag},
-        subregion,
-        currencies,
-        timezones,
-        callingCodes,
-        officialLanguages
-    } = data.Country[0];
+        // flag: {svgFile: flag},
+        continent,
+        currency,
+        phone,
+        languages
+    } = data.country;
 
-    const region = subregion ? subregion.region.name : "n/a";
+    const region = continent ? continent.name : "n/a";
+    currency = currency ? currency : "n/a";
+    const callCode = phone ? phone : "n/a";
+    const officialLanguages = languages?.length ? languages : "n/a";
+    const timezones = 'n/a'
     let popul, unit;
+    let imageUrl = `https://flagpedia.net/data/flags/w580/${id.toLowerCase()}.png`
 
-    if (population > 1000000) {
-        popul = (Math.round(population / 10000) / 100).toLocaleString("pl");
-        unit = "m";
-    } else {
-        popul = (Math.round(population / 10) / 100).toLocaleString("pl");
-        unit = "t"
-    }
+
+    // if (population > 1000000) {
+    //     popul = (Math.round(population / 10000) / 100).toLocaleString("pl");
+    //     unit = "m";
+    // } else {
+    //     popul = (Math.round(population / 10) / 100).toLocaleString("pl");
+    //     unit = "t"
+    // }
 
     return (
         <div
@@ -57,10 +62,10 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
         >
             <div className="country">
                 <div className="country__block"
-                     data-testid="country"
+                    data-testid="country"
                 >
                     <div className="item__flag">
-                        <img className="flag__image" src={flag} alt="flag"/>
+                        <img className="flag__image" src={imageUrl} alt="flag" />
                     </div>
                     <DataViewMobile
                         title="Country"
@@ -77,7 +82,7 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
 
                     />
                     <div className="info two"
-                         data-testid="data">
+                        data-testid="data">
                         <DataViewMobile
                             title="Region"
                             data={region}
@@ -89,16 +94,16 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
                         data-testid="unit"
                         className="info three">
                         <DataViewMobile
-                            title="Population"
-                            data={popul}
+                            title="Native"
+                            data={population}
                             position=""
                             addictions={unit}
                             picture={greenEllipse}
                         />
                     </div>
-                    <DataViewListMobile
+                    <DataViewMobile
                         title="Currencies"
-                        data={currencies}
+                        data={currency}
                         position="left"
                         addictions=""
                         background="#FFE4A4"
@@ -113,17 +118,17 @@ const CountryDetailsMobile = ({id, countryDetails}) => {
                         picture={greenEllipse}
                     />
 
-                    <DataViewListMobile
+                    {/* <DataViewListMobile
                         title="Time zone"
                         data={timezones}
                         position=""
                         addictions=""
                         background="#B9EAC3"
                         picture={redEllipse}
-                    />
-                    <DataViewListMobile
+                    /> */}
+                    <DataViewMobile
                         title="Calling codes"
-                        data={callingCodes}
+                        data={callCode}
                         position=""
                         addictions="+"
                         background="#A6E6FD"
